@@ -1,5 +1,7 @@
 # Collections
 
+[Repository home](../README.md) · [Docs index](README.md)
+
 The platform groups the complete compounds of the main package in five top-level collections. A compound
 can belong to more than one. The criterion of each collection is shown on the platform, on the page of the
 collection.
@@ -12,8 +14,18 @@ collection.
 | **Bioactivity Space** | Criterion shown on the platform |
 | **Diversity Space** | Criterion shown on the platform |
 
+<p>
+<img src="../assets/collection-aurora.svg" alt="AURORA" height="64">
+<img src="../assets/collection-natural.svg" alt="Natural Space" height="64">
+<img src="../assets/collection-drug.svg" alt="Drug Space" height="64">
+<img src="../assets/collection-bioactivity.svg" alt="Bioactivity Space" height="64">
+<img src="../assets/collection-diversity.svg" alt="Diversity Space" height="64">
+</p>
+
 ## Where to open them
 
-[Collections](https://aurora.alchemia.solutions/collections) and the
-[Explorer](https://aurora.alchemia.solutions/explorer) on the platform. In the closed beta both ask for an
-invitation token. Download of a collection bundle is planned and not available yet.
+The [Collections](https://aurora.alchemia.solutions/collections) pages are open to read when the v1.3 release
+is live. Until then the platform is in closed beta and asks for an approved account. The
+[Explorer](https://aurora.alchemia.solutions/explorer) and the download of a collection need an approved
+account. Sign-up is off for the public until the privacy policy is published. No download package is
+published yet.

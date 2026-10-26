@@ -1,5 +1,7 @@
 # Sources
 
+[Repository home](../README.md) · [Docs index](README.md)
+
 AURORA draws on public collections. It does not redistribute the raw dumps: for those, go to the original
 projects. Attribution names Alchemia LTDA for the curation and aggregation, and it does not replace the
 original sources. If you publish work built on a subset, cite the upstream projects too.
@@ -23,7 +25,7 @@ page makes no statement about redistributing data from the sources marked "Licen
 
 ## Other public collections AURORA draws on
 
-These sources state non-commercial terms of their own. They are listed as public references only. This
+These sources state terms of their own. They are listed as public references only. This
 repository makes no statement about redistributing data from them, and holds none.
 
 | Source | Reference |
@@ -33,7 +35,7 @@ repository makes no statement about redistributing data from them, and holds non
 | **AntibioticDB** (GARDP) | [10.1021/acsinfecdis.5c00955](https://doi.org/10.1021/acsinfecdis.5c00955) · [10.1093/jac/dky208](https://doi.org/10.1093/jac/dky208) |
 
 The AURORA-NC package (CC BY-NC 4.0) exists for compounds that come only from sources with
-non-commercial terms. No package is published yet.
+terms of their own. No package is published yet.
 
 ## How to cite a source
 

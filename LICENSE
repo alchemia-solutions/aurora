@@ -3,7 +3,8 @@ Copyright (c) 2026 Alchemia LTDA.
 
 WHAT EACH LICENCE COVERS
 
-  Data of the AURORA package, the documentation in this repository and its figures:
+  Data of the AURORA package, the documentation in this repository and its figures,
+  except the names, wordmarks and symbols the figures carry (see below):
     Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
     https://creativecommons.org/licenses/by-sa/4.0/
     Full legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
@@ -12,7 +13,7 @@ WHAT EACH LICENCE COVERS
     Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
     https://creativecommons.org/licenses/by-nc/4.0/
     Full legal code: https://creativecommons.org/licenses/by-nc/4.0/legalcode
-    No commercial use of that package is permitted.
+    The official licence text governs.
 
   Code in examples/ and scripts/:
     Apache License 2.0, see LICENSE-CODE.
@@ -39,7 +40,7 @@ NOT COVERED BY THESE LICENCES
     figures of assets/. They are trademarks and closed artwork of Alchemia LTDA. They may be reproduced
     unaltered when you refer to this project. They may not be modified, redrawn, or used to imply
     endorsement, affiliation or origin.
-  * The raw data of the upstream sources. AURORA publishes a curated, deduplicated derivative. For raw
+  * The raw data of the upstream sources. AURORA will publish a curated, deduplicated derivative. For raw
     data, go to the original project and read its terms (docs/SOURCES.md).
 
 ATTRIBUTION FOR DOWNSTREAM USE

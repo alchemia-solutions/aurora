@@ -7,3 +7,11 @@ __pycache__/
 *.tar.zst
 *.sdf
 *.pdbqt
+
+# Windows and Drive folder metadata
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Local tooling folders
+.claude/

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Read-only calls to the public AURORA API.
+"""Read-only calls to the AURORA API.
 
     pip install requests
-    export AURORA_TOKEN=<your beta invitation token>
+    export AURORA_TOKEN=<a token from your approved account>   # only for the routes that need one
     python examples/python/read_api.py
 
-The API answers in closed beta: without a token, /v1/ answers 401.
+Open routes (no token, when the v1.3 release is live): /v1/public/summary, /v1/catalog/stats, /v1/collections.
+Routes with a Bearer token: /v1/search/*, /v1/compounds/{alchemia_id}. See docs/API.md.
 Licensed under Apache-2.0 (LICENSE-CODE).
 """
 from __future__ import annotations
@@ -28,20 +29,26 @@ def session() -> requests.Session:
     return s
 
 
-def show(title: str, response: requests.Response) -> None:
+def show(title: str, response: requests.Response) -> dict | None:
     print(f"== {title}: HTTP {response.status_code}")
     if response.status_code == 401:
-        print("   The API is in closed beta and needs an invitation token (AURORA_TOKEN).")
-        return
+        print("   This route needs a Bearer token from an approved account (AURORA_TOKEN).")
+        return None
     response.raise_for_status()
-    print(json.dumps(response.json(), indent=2)[:1500])
+    body = response.json()
+    print(json.dumps(body, indent=2)[:1200])
+    return body
 
 
 def main() -> int:
     s = session()
+    # Open routes: no token needed once the v1.3 release is live.
+    show("public summary", s.get(f"{BASE_URL}/v1/public/summary", timeout=TIMEOUT_SECONDS))
     show("catalog stats", s.get(f"{BASE_URL}/v1/catalog/stats", timeout=TIMEOUT_SECONDS))
-    show("collections", s.get(f"{BASE_URL}/v1/collections", timeout=TIMEOUT_SECONDS))
-    show(
+    show("collections", s.get(f"{BASE_URL}/v1/collections", params={"limit": 10}, timeout=TIMEOUT_SECONDS))
+
+    # Routes with a Bearer token.
+    hits = show(
         "text search",
         s.get(f"{BASE_URL}/v1/search/text", params={"q": "quercetin", "limit": 5}, timeout=TIMEOUT_SECONDS),
     )
@@ -55,6 +62,9 @@ def main() -> int:
         s.post(f"{BASE_URL}/v1/search/similarity", json={"smiles": "CCO", "min_similarity": 0.9, "limit": 5},
                timeout=TIMEOUT_SECONDS),
     )
+    if hits and hits.get("items"):
+        alchemia_id = hits["items"][0]["alchemia_id"]
+        show(f"compound {alchemia_id}", s.get(f"{BASE_URL}/v1/compounds/{alchemia_id}", timeout=TIMEOUT_SECONDS))
     return 0
 
 

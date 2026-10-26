@@ -1,5 +1,7 @@
 # Data dictionary (public columns)
 
+[Repository home](../README.md) · [Docs index](README.md)
+
 This page documents the columns a consumer is most likely to meet. It is a selection, not the whole
 schema. The complete dictionary, generated from a live query against the database, ships with each
 release. Where a column is not listed here, do not assume what it means.

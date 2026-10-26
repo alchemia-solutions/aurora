@@ -1,5 +1,7 @@
 # Data model
 
+[Repository home](../README.md) · [Docs index](README.md)
+
 AURORA is a PostgreSQL database with the RDKit cartridge and the pgvector extension. This page describes
 the public data model. The database itself is not exposed: you reach it through the API or through the
 release files.
@@ -51,7 +53,7 @@ The views are the contract with any consumer.
 |---|---|
 | Catalog view | Every complete compound, one row each, with all of its marks |
 | AURORA package view | The complete compounds that may be redistributed under CC BY-SA 4.0 |
-| AURORA-NC package view | The complete compounds that come only from non-commercial sources, CC BY-NC 4.0 |
+| AURORA-NC package view | The complete compounds that come only from sources with terms of their own, CC BY-NC 4.0 |
 | Distributable file views | The SDF and PDBQT file set of each package, with checksums |
 | Public identifiers view | The public identifiers of each compound and the recorded status of each search |
 

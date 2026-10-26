@@ -1,0 +1,18 @@
+{
+  "_about": "The only list of links to the AURORA platform used in this repository. Every document points to an address in this list, and scripts/check_links.py fails when a document links to a platform address that is not here. When the v1.3 release goes live, check these addresses in one pass.",
+  "base": "https://aurora.alchemia.solutions",
+  "state": "Closed beta until the v1.3 release is live. Pages marked open are available when the v1.3 release is live; pages marked account need an approved account.",
+  "links": [
+    {"key": "home", "url": "https://aurora.alchemia.solutions/home", "access": "open when the v1.3 release is live"},
+    {"key": "dashboard", "url": "https://aurora.alchemia.solutions/dashboard", "access": "open when the v1.3 release is live"},
+    {"key": "collections", "url": "https://aurora.alchemia.solutions/collections", "access": "pages open when the v1.3 release is live; download needs an account"},
+    {"key": "explorer", "url": "https://aurora.alchemia.solutions/explorer", "access": "account"},
+    {"key": "collaborate", "url": "https://aurora.alchemia.solutions/collaborate", "access": "open when the v1.3 release is live"},
+    {"key": "collaborate_register_studies", "url": "https://aurora.alchemia.solutions/collaborate/register-studies", "access": "account to submit"},
+    {"key": "collaborate_add_databases", "url": "https://aurora.alchemia.solutions/collaborate/add-databases", "access": "account to submit"},
+    {"key": "docs", "url": "https://aurora.alchemia.solutions/docs", "access": "open when the v1.3 release is live"},
+    {"key": "docs_api", "url": "https://aurora.alchemia.solutions/docs/api", "access": "open when the v1.3 release is live"},
+    {"key": "enter", "url": "https://aurora.alchemia.solutions/enter", "access": "open"},
+    {"key": "api_base", "url": "https://aurora.alchemia.solutions/v1", "access": "see docs/API.md"}
+  ]
+}

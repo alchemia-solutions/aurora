@@ -1,20 +1,22 @@
 # The ATHANOR pipeline, as described in public
 
+[Repository home](../README.md) · [Docs index](README.md)
+
 ATHANOR is the curation pipeline that turns public compound collections into the AURORA database. It is
 private. This page says what each stage is for, at the level of a headline. It gives no parameter, no
 threshold and no code, and it will not.
 
 ## The seven stages
 
-| Stage | Purpose |
-|---|---|
-| **S1** Source acquisition and provenance | Bring each source in under a declared licence gate. Every record keeps its own redistribution verdict, so the licence is a mark on the data and never a silent filter |
-| **S2** Structure curation and identity | Validate and standardize each structure, merge duplicates across sources, and give each unique compound a permanent `ALC<n>` identifier that is never reassigned or reused |
-| **S3** Ligand state preparation | Set the protonation state at physiological pH and apply a stereochemistry policy |
-| **S4** 3D structure generation and validation | Produce one force-field-optimized 3D conformer per compound and check it with a validity gate |
-| **S5** Molecular characterization | Compute descriptors, fingerprints, structural alerts, ADMET predictions with an applicability domain, scaffolds and a learned embedding |
-| **S6** Docking-ready preparation | Convert the 3D structure into a docking file and check the file |
-| **S7** Release assembly, loading and reconciliation | Package the release with a checksum manifest, load the database and reconcile files against it |
+| Stage | What it does | What it gives |
+|---|---|---|
+| **S1** Collect sources | Each record is collected with its source and license. Every record keeps its own redistribution verdict, so the license is a mark on the data and never a silent filter | A record that carries where it came from |
+| **S2** Standardize and identify | Validates and standardizes each structure, merges duplicates across sources and gives each unique compound a permanent identifier | A stable `ALC<n>` identifier, never reassigned or reused |
+| **S3** Set protonation | Each molecule is prepared in the forms used for modeling, at physiological pH, under a stereochemistry policy | The prepared forms of the molecule |
+| **S4** Build 3D conformers | A 3D geometry is generated and checked by a validity gate | An approved geometry, or a mark that none was approved |
+| **S5** Compute properties | Each molecule is described by its properties: descriptors, fingerprints, structural alerts, ADMET predictions with an applicability domain, scaffolds and a learned embedding | The descriptors and properties of the compound |
+| **S6** Prepare for docking | Files are prepared for docking and checked | Files that a docking program can read |
+| **S7** Release and load | The release is assembled with a checksum manifest, loaded and checked against the record | A release that matches its record |
 
 ## Principles
 

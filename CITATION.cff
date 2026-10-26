@@ -1,8 +1,9 @@
 cff-version: 1.2.0
 title: "AURORA Database: Alchemia Unified Repository for Open Research Applications"
 message: >-
-  If you use AURORA in your research, please cite it as below and also cite the
-  upstream sources you drew compounds from. They are listed in docs/SOURCES.md.
+  Cite AURORA by name and publisher, the release you used and the date you
+  accessed it. The release is shown on the platform. There is no DOI. Also cite
+  the upstream sources you drew compounds from, listed in docs/SOURCES.md.
 type: dataset
 version: "registry release 1.9.0, unpublished"
 license:
@@ -30,4 +31,4 @@ keywords:
   - natural products
   - molecular docking
   - ADMET
-  - open data
+  - molecular database

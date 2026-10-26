@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Register a study or suggest a database for ATHANOR
+    url: https://aurora.alchemia.solutions/collaborate
+    about: Use Collaborate on the platform. It needs an approved account.
+  - name: API documentation
+    url: https://aurora.alchemia.solutions/docs/api
+    about: The API reference is under Documents on the platform.
   - name: Security report
     url: https://github.com/alchemia-solutions/aurora/blob/main/SECURITY.md
     about: Do not open a public issue for a vulnerability. Read SECURITY.md.

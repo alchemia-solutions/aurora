@@ -3,6 +3,18 @@
 Thank you for the interest. This repository describes ATHANOR and AURORA and holds read-only examples of
 the API. The pipeline code and the data are not here, so there is nothing of them to patch.
 
+## Where to go for what
+
+| You want to | Go to |
+|---|---|
+| Register a study that uses AURORA | [Collaborate, register studies](https://aurora.alchemia.solutions/collaborate/register-studies) |
+| Ask that a molecule database be considered by ATHANOR | [Collaborate, add databases](https://aurora.alchemia.solutions/collaborate/add-databases) |
+| Read how the API works | [Documents, API](https://aurora.alchemia.solutions/docs/api) and [docs/API.md](docs/API.md) |
+| Fix or improve this repository | An issue or a pull request here |
+| Report a vulnerability | contact@alchemia.solutions, see [SECURITY.md](SECURITY.md) |
+
+Collaborate forms need an approved account and open to read when the v1.3 release is live.
+
 ## What helps
 
 - A correction to the source list: a wrong reference, a dead link, a licence statement the source changed.
