@@ -1,0 +1,25 @@
+name: Source or reference correction
+description: A wrong reference, a dead link or a changed licence statement in docs/SOURCES.md
+labels: ["sources"]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Which source in docs/SOURCES.md
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+      description: Quote the source page and say the date you read it.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested correction
+  - type: markdown
+    attributes:
+      value: Do not paste credentials, tokens or personal data.

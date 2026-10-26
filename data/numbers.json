@@ -1,0 +1,18 @@
+{
+  "_about": "Every number printed in README.md comes from this file through scripts/gen_numbers.py. Edit the values here, never in the prose, and run the script. Values are copied, with their date, from the Alchemia registry readings; this file measures nothing by itself.",
+  "version": "1.9.0",
+  "registry": {
+    "asof": "2026-10-17",
+    "source": "Alchemia registry, release 1.9.0, local database, read by query on that date; the database behind the platform was not read again",
+    "compounds": 935338,
+    "complete": 919819,
+    "incomplete": 15519,
+    "package_aurora": 903515,
+    "package_aurora_nc": 16304,
+    "sources": 9,
+    "raw_records": 1136429,
+    "names_and_synonyms": 8546241,
+    "learned_embeddings": 926622,
+    "bioactivity_measurements": 1250
+  }
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#808080" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Diversity Space">
+<title>Diversity Space</title>
+<path d="M3.77,16.62L7.11,18.55L10.44,16.62L10.44,10.46L7.11,8.53L3.77,10.46Z"/>
+<path d="M7.11,12.39L7.11,18.55"/>
+<path d="M7.11,12.39L3.77,10.46"/>
+<path d="M7.11,12.39L10.44,10.46"/>
+<path d="M13.56,16.62L16.89,18.55L20.23,16.62L20.23,12.77L16.89,10.85L13.56,12.77Z"/>
+<path d="M16.89,14.7L16.89,18.55"/>
+<path d="M16.89,14.7L13.56,12.77"/>
+<path d="M16.89,14.7L20.23,12.77"/>
+<path d="M8.66,19.45L12,21.38L15.34,19.45L15.34,17.39L12,15.47L8.66,17.39Z"/>
+<path d="M12,19.32L12,21.38"/>
+<path d="M12,19.32L8.66,17.39"/>
+<path d="M12,19.32L15.34,17.39"/>
+<path d="M8.66,13.8L12,15.72L15.34,13.8L15.34,4.55L12,2.62L8.66,4.55Z"/>
+<path d="M12,6.48L12,15.72"/>
+<path d="M12,6.48L8.66,4.55"/>
+<path d="M12,6.48L15.34,4.55"/>
+</svg>

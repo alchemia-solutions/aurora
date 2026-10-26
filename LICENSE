@@ -1,0 +1,48 @@
+ATHANOR and AURORA, public repository
+Copyright (c) 2026 Alchemia LTDA.
+
+WHAT EACH LICENCE COVERS
+
+  Data of the AURORA package, the documentation in this repository and its figures:
+    Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+    https://creativecommons.org/licenses/by-sa/4.0/
+    Full legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+  Data of the AURORA-NC package:
+    Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+    https://creativecommons.org/licenses/by-nc/4.0/
+    Full legal code: https://creativecommons.org/licenses/by-nc/4.0/legalcode
+    No commercial use of that package is permitted.
+
+  Code in examples/ and scripts/:
+    Apache License 2.0, see LICENSE-CODE.
+
+  This repository holds the documentation and the code above. It holds no database and no data package.
+  No package is published yet.
+
+THE CC BY-SA 4.0 TERMS, IN SHORT
+
+  No package is published yet. The licence says that you may share and adapt licensed material if you:
+    * give appropriate credit to Alchemia LTDA and to the original sources listed in docs/SOURCES.md,
+      link to the licence and indicate whether you made changes;
+    * distribute what you build on it under the same licence (ShareAlike);
+    * add no legal terms or technical measures that restrict others from doing what the licence permits.
+
+  This is a human-readable summary and not a substitute for the licence. The legal code governs.
+  No warranties are given.
+
+NOT COVERED BY THESE LICENCES
+
+  * The ATHANOR curation pipeline. It is proprietary software of Alchemia LTDA, it is not in this
+    repository, and nothing here grants a right in it.
+  * The Alchemia, ATHANOR and AURORA names, wordmarks and symbols, including those placed inside the
+    figures of assets/. They are trademarks and closed artwork of Alchemia LTDA. They may be reproduced
+    unaltered when you refer to this project. They may not be modified, redrawn, or used to imply
+    endorsement, affiliation or origin.
+  * The raw data of the upstream sources. AURORA publishes a curated, deduplicated derivative. For raw
+    data, go to the original project and read its terms (docs/SOURCES.md).
+
+ATTRIBUTION FOR DOWNSTREAM USE
+
+  Credit Alchemia LTDA and the sources of the compounds you use, citing their papers. They are listed in
+  docs/SOURCES.md. A machine-readable citation is in CITATION.cff.

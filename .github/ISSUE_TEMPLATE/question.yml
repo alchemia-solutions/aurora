@@ -1,0 +1,18 @@
+name: Question or use case
+description: Ask about the database, the API or the documentation
+labels: ["question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: What do you want to know or do
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: The part of the documentation you read, and what was unclear.
+  - type: markdown
+    attributes:
+      value: Do not paste credentials, tokens or personal data.

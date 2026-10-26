@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: "AURORA Database: Alchemia Unified Repository for Open Research Applications"
+message: >-
+  If you use AURORA in your research, please cite it as below and also cite the
+  upstream sources you drew compounds from. They are listed in docs/SOURCES.md.
+type: dataset
+version: "registry release 1.9.0, unpublished"
+license:
+  - CC-BY-SA-4.0
+  - CC-BY-NC-4.0
+repository-code: "https://github.com/alchemia-solutions/aurora"
+url: "https://alchemia.solutions"
+abstract: >-
+  AURORA is a molecular database for computer-aided drug design, curated by the
+  ATHANOR pipeline. Its main package is licensed under CC BY-SA 4.0 and a
+  companion package, AURORA-NC, under CC BY-NC 4.0. No package is published yet.
+  Every complete compound has an approved 3D conformer, a docking file and the
+  core feature tables. The pipeline is private and is not distributed. This
+  repository describes the database, its sources and its data model.
+authors:
+  - name: "Alchemia LTDA"
+    alias: "Alchemia Solutions"
+    city: "Barretos"
+    region: "São Paulo"
+    country: BR
+    website: "https://alchemia.solutions"
+keywords:
+  - cheminformatics
+  - computer-aided drug design
+  - natural products
+  - molecular docking
+  - ADMET
+  - open data
