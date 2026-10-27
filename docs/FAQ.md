@@ -12,12 +12,12 @@ account.
 
 **Can I use the API?**
 The API needs a Bearer token from an approved account, except for the routes listed in [API.md](API.md).
-The platform is in closed beta until the v1.3 release is live, and sign-up for the public is off until the
+The platform is a closed beta (the v1.3 release has been live since 2026-10-26), and sign-up for the public is off until the
 privacy policy is published.
 
 **Which pages of the platform are open?**
-When the v1.3 release is live: Home, Dashboard, the Collections pages, Collaborate and Documents. The
-Explorer and the downloads need an approved account. Until then the beta is closed.
+Since the v1.3 release: Home, Dashboard, the Collections pages, Collaborate and Documents. The
+Explorer and the downloads need an approved account.
 
 **Which licence covers what?**
 The AURORA package and the documentation are CC BY-SA 4.0, and so are the figures, except the names,

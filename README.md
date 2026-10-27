@@ -20,9 +20,9 @@
 [![Collaborate](https://img.shields.io/badge/Collaborate-808080?style=for-the-badge&labelColor=000000)](https://aurora.alchemia.solutions/collaborate)
 [![Documents](https://img.shields.io/badge/Documents-808080?style=for-the-badge&labelColor=000000)](https://aurora.alchemia.solutions/docs)
 
-The platform is in closed beta until the v1.3 release is live. Today it asks for an approved account. When
-the v1.3 release is live, Home, Dashboard, the Collections pages, Collaborate and Documents are open to
-read, and the Explorer and the downloads need an approved account. Every link above is listed in
+The platform is a closed beta, and the v1.3 release has been live since 2026-10-26. Home, Dashboard, the
+Collections pages, Collaborate and Documents are open to read, and the Explorer and the downloads need an
+approved account. Every link above is listed in
 [`data/site-links.json`](data/site-links.json), the one place to check when the release changes.
 
 [What it is](#what-it-is) · [The pipeline](#the-athanor-pipeline) · [At a glance](#at-a-glance) · [Collections](#the-five-collections) · [Sources](docs/SOURCES.md) · [Docs index](docs/README.md) · [Read the API](#read-aurora-through-the-api) · [Limits](#honest-limitations) · [Cite](#citing) · [Contribute](#contributing)
@@ -150,10 +150,10 @@ product is meant to be file download plus the API.
 
 ## Availability
 
-- **The platform** answers at `aurora.alchemia.solutions` in closed beta, for approved accounts. Sign In and
-  Sign Up exist, and sign-up for the public is off until the privacy policy is published.
-- **When the v1.3 release is live:** Home, Dashboard, the Collections pages, Collaborate and Documents are
-  open to read. The Explorer and the downloads need an approved account.
+- **The platform** answers at `aurora.alchemia.solutions` in closed beta. Sign In and Sign Up exist, and
+  sign-up for the public is off until the privacy policy is published.
+- **Since the v1.3 release (live on 2026-10-26):** Home, Dashboard, the Collections pages, Collaborate and
+  Documents are open to read. The Explorer and the downloads need an approved account.
 - **The API** needs a Bearer token from an approved account, except for the routes listed in
   [docs/API.md](docs/API.md). Without a token, the other routes answer 401.
 - **Download packages** are not published. The object storage that will serve them holds no public

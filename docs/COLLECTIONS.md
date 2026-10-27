@@ -24,8 +24,8 @@ collection.
 
 ## Where to open them
 
-The [Collections](https://aurora.alchemia.solutions/collections) pages are open to read when the v1.3 release
-is live. Until then the platform is in closed beta and asks for an approved account. The
+The [Collections](https://aurora.alchemia.solutions/collections) pages are open to read since the v1.3 release
+(live on 2026-10-26); the platform is otherwise a closed beta. The
 [Explorer](https://aurora.alchemia.solutions/explorer) and the download of a collection need an approved
 account. Sign-up is off for the public until the privacy policy is published. No download package is
 published yet.

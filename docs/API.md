@@ -9,15 +9,15 @@ a token and which do not. It does not repeat the parameters or the answers: read
 
 ## Access
 
-The platform is in closed beta until the v1.3 release is live. The routes below that need no token are open
-when the v1.3 release is live. Until then, every route except the health probes and the sign-in doors
-needs a Bearer token from an approved account.
+The platform is a closed beta, and the v1.3 release has been live since 2026-10-26. The routes below need no
+token. Every other route, except the health probes and the sign-in doors, needs a Bearer token from an
+approved account.
 
 Send the token as `Authorization: Bearer <token>`. A missing or invalid token answers 401. Sign In and Sign
 Up exist on the platform, and sign-up for the public is off until the privacy policy is published. Nobody
 receives direct database access, not even read-only.
 
-## Routes that need no token (when the v1.3 release is live)
+## Routes that need no token (since the v1.3 release)
 
 | Route | What it returns |
 |---|---|
