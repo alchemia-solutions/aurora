@@ -10,9 +10,10 @@ your own shell.
 
 ## How to use
 
-Run the program of your choice. The routes that need no token run as they are, once the v1.3 release is
-live. For the others set `AURORA_TOKEN` to the token of your approved account, or the API answers 401. What
-the calls do, and which routes need a token, is in [../docs/API.md](../docs/API.md).
+Run the program of your choice. The platform is a closed beta. One route, the public summary, needs no token. For every other route set
+`AURORA_TOKEN` to the token of your approved account, or the API answers 401. What the calls do, and which
+routes need a token, is in [../docs/API.md](../docs/API.md). The calls follow the OpenAPI contract of platform
+version 1.4.0, read on 2026-11-17.
 
 ## What is not here
 

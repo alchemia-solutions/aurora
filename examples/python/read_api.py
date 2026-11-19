@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Read-only calls to the AURORA API.
+"""Read-only calls to the AURORA API, following the OpenAPI contract of platform version 1.4.0 (closed beta).
 
     pip install requests
-    export AURORA_TOKEN=<a token from your approved account>   # only for the routes that need one
+    export AURORA_TOKEN=<a token from your approved account>   # for every route except the first
     python examples/python/read_api.py
 
-Open routes (no token, when the v1.3 release is live): /v1/public/summary, /v1/catalog/stats, /v1/collections.
-Routes with a Bearer token: /v1/search/*, /v1/compounds/{alchemia_id}. See docs/API.md.
+Open route (no token): /v1/public/summary. Routes with a Bearer token: /v1/catalog/stats, /v1/collections,
+/v1/search/text, /v1/compounds/{alchemia_id}. See docs/API.md. The platform is a closed beta and no package is
+published.
 Licensed under Apache-2.0 (LICENSE-CODE).
 """
 from __future__ import annotations
@@ -42,25 +43,15 @@ def show(title: str, response: requests.Response) -> dict | None:
 
 def main() -> int:
     s = session()
-    # Open routes: no token needed once the v1.3 release is live.
+    # The one open route of the closed beta: aggregates, no compound.
     show("public summary", s.get(f"{BASE_URL}/v1/public/summary", timeout=TIMEOUT_SECONDS))
-    show("catalog stats", s.get(f"{BASE_URL}/v1/catalog/stats", timeout=TIMEOUT_SECONDS))
-    show("collections", s.get(f"{BASE_URL}/v1/collections", params={"limit": 10}, timeout=TIMEOUT_SECONDS))
 
     # Routes with a Bearer token.
+    show("catalog stats", s.get(f"{BASE_URL}/v1/catalog/stats", timeout=TIMEOUT_SECONDS))
+    show("collections", s.get(f"{BASE_URL}/v1/collections", params={"limit": 10}, timeout=TIMEOUT_SECONDS))
     hits = show(
         "text search",
         s.get(f"{BASE_URL}/v1/search/text", params={"q": "quercetin", "limit": 5}, timeout=TIMEOUT_SECONDS),
-    )
-    show(
-        "substructure (benzene ring)",
-        s.post(f"{BASE_URL}/v1/search/substructure", json={"smarts": "c1ccccc1", "limit": 5},
-               timeout=TIMEOUT_SECONDS),
-    )
-    show(
-        "similarity (ethanol)",
-        s.post(f"{BASE_URL}/v1/search/similarity", json={"smiles": "CCO", "min_similarity": 0.9, "limit": 5},
-               timeout=TIMEOUT_SECONDS),
     )
     if hits and hits.get("items"):
         alchemia_id = hits["items"][0]["alchemia_id"]

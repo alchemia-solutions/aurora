@@ -1,18 +1,72 @@
 {
-  "_about": "The only list of links to the AURORA platform used in this repository. Every document points to an address in this list, and scripts/check_links.py fails when a document links to a platform address that is not here. When the v1.3 release goes live, check these addresses in one pass.",
+  "_about": "The only list of links to the AURORA platform used in this repository. Every document points to an address in this list, and scripts/check_links.py fails when a document links to a platform address that is not here. A link here is a reference, not a statement that the page is open to the public.",
   "base": "https://aurora.alchemia.solutions",
-  "state": "Closed beta until the v1.3 release is live. Pages marked open are available when the v1.3 release is live; pages marked account need an approved account.",
+  "state": "Closed beta for approved accounts, read on 2026-11-17. No address below is promised as open. Re-check them in one pass when the state of the platform changes.",
   "links": [
-    {"key": "home", "url": "https://aurora.alchemia.solutions/home", "access": "open when the v1.3 release is live"},
-    {"key": "dashboard", "url": "https://aurora.alchemia.solutions/dashboard", "access": "open when the v1.3 release is live"},
-    {"key": "collections", "url": "https://aurora.alchemia.solutions/collections", "access": "pages open when the v1.3 release is live; download needs an account"},
-    {"key": "explorer", "url": "https://aurora.alchemia.solutions/explorer", "access": "account"},
-    {"key": "collaborate", "url": "https://aurora.alchemia.solutions/collaborate", "access": "open when the v1.3 release is live"},
-    {"key": "collaborate_register_studies", "url": "https://aurora.alchemia.solutions/collaborate/register-studies", "access": "account to submit"},
-    {"key": "collaborate_add_databases", "url": "https://aurora.alchemia.solutions/collaborate/add-databases", "access": "account to submit"},
-    {"key": "docs", "url": "https://aurora.alchemia.solutions/docs", "access": "open when the v1.3 release is live"},
-    {"key": "docs_api", "url": "https://aurora.alchemia.solutions/docs/api", "access": "open when the v1.3 release is live"},
-    {"key": "enter", "url": "https://aurora.alchemia.solutions/enter", "access": "open"},
-    {"key": "api_base", "url": "https://aurora.alchemia.solutions/v1", "access": "see docs/API.md"}
+    {
+      "key": "home",
+      "url": "https://aurora.alchemia.solutions/home",
+      "access": "closed beta"
+    },
+    {
+      "key": "dashboard",
+      "url": "https://aurora.alchemia.solutions/dashboard",
+      "access": "closed beta"
+    },
+    {
+      "key": "collections",
+      "url": "https://aurora.alchemia.solutions/collections",
+      "access": "closed beta; download needs an approved account and no package is published"
+    },
+    {
+      "key": "explorer",
+      "url": "https://aurora.alchemia.solutions/explorer",
+      "access": "approved account"
+    },
+    {
+      "key": "policy",
+      "url": "https://aurora.alchemia.solutions/policy",
+      "access": "Terms of Use and Privacy Policy, version 1.0"
+    },
+    {
+      "key": "license",
+      "url": "https://aurora.alchemia.solutions/license",
+      "access": "Licence page, version 1.0"
+    },
+    {
+      "key": "collaborate",
+      "url": "https://aurora.alchemia.solutions/collaborate",
+      "access": "closed beta"
+    },
+    {
+      "key": "collaborate_register_studies",
+      "url": "https://aurora.alchemia.solutions/collaborate/register-studies",
+      "access": "approved account to submit"
+    },
+    {
+      "key": "collaborate_add_databases",
+      "url": "https://aurora.alchemia.solutions/collaborate/add-databases",
+      "access": "approved account to submit"
+    },
+    {
+      "key": "docs",
+      "url": "https://aurora.alchemia.solutions/docs",
+      "access": "closed beta"
+    },
+    {
+      "key": "docs_api",
+      "url": "https://aurora.alchemia.solutions/docs/api",
+      "access": "closed beta"
+    },
+    {
+      "key": "enter",
+      "url": "https://aurora.alchemia.solutions/enter",
+      "access": "closed beta door"
+    },
+    {
+      "key": "api_base",
+      "url": "https://aurora.alchemia.solutions/v1",
+      "access": "see docs/API.md"
+    }
   ]
 }

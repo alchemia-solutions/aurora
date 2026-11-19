@@ -5,7 +5,7 @@ Figures and symbols for the README and the documents.
 | File | What it shows |
 |---|---|
 | `hero.svg` | The banner at the top of the root README |
-| `flow.svg` | The ATHANOR pipeline, stages S1 to S7, ending at the AURORA bank |
+| `flow.svg` | The ATHANOR pipeline, stages G1 to G7, ending at the AURORA bank |
 | `collection-aurora.svg`, `collection-natural.svg`, `collection-drug.svg`, `collection-bioactivity.svg`, `collection-diversity.svg` | The symbol of each of the five collections |
 
 ## How to use

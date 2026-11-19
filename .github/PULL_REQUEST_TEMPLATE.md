@@ -10,3 +10,4 @@ One subject per pull request.
 - [ ] No em dash or en dash in text
 - [ ] `python scripts/check_links.py` passes, and any link to the platform is listed in `data/site-links.json`
 - [ ] Any new claim has a source and a date
+- [ ] Nothing says a package is published, a page is open to the public, or that AURORA is the largest or best of anything

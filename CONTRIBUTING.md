@@ -13,7 +13,7 @@ the API. The pipeline code and the data are not here, so there is nothing of the
 | Fix or improve this repository | An issue or a pull request here |
 | Report a vulnerability | contact@alchemia.solutions, see [SECURITY.md](SECURITY.md) |
 
-Collaborate forms need an approved account and open to read when the v1.3 release is live.
+Collaborate forms need an approved account while the platform is a closed beta.
 
 ## What helps
 
@@ -34,8 +34,11 @@ Collaborate forms need an approved account and open to read when the v1.3 releas
 
 1. Open an issue first for anything larger than a typo.
 2. Keep a pull request to one subject.
-3. Run `python scripts/gen_numbers.py --check`. Figures live in `data/numbers.json` and nowhere else.
+3. Run `python scripts/gen_numbers.py --check` and `python scripts/check_links.py`. Figures live in
+   `data/numbers.json` and nowhere else, each with its date.
 4. Write no em dash or en dash in text. Rewrite the sentence.
+5. Do not write that a package is published, that a page is open to the public, or that AURORA is the largest
+   or the best of anything. A claim has a source and a date.
 
 ## Licence of a contribution
 

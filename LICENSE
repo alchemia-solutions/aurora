@@ -45,5 +45,8 @@ NOT COVERED BY THESE LICENCES
 
 ATTRIBUTION FOR DOWNSTREAM USE
 
-  Credit Alchemia LTDA and the sources of the compounds you use, citing their papers. They are listed in
-  docs/SOURCES.md. A machine-readable citation is in CITATION.cff.
+  Credit Alchemia LTDA, as the curator of AURORA, and name the package you used (AURORA or AURORA-NC). Credit
+  the sources of the compounds you use, citing their papers. They are listed in docs/SOURCES.md. Link the
+  licence of the package and say if you made changes. A machine-readable citation is in CITATION.cff.
+  A compound belongs to exactly one package: keep its licence with it, and do not state one licence for a set
+  that holds both packages. Do not suggest that Alchemia or a source endorses you.

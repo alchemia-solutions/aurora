@@ -2,9 +2,12 @@
 
 [Repository home](../README.md) · [Docs index](README.md)
 
-The platform groups the complete compounds of the main package in five top-level collections. A compound
-can belong to more than one. The criterion of each collection is shown on the platform, on the page of the
-collection.
+The platform groups the complete compounds of the main package in five top-level collections. The registry
+also holds subcollections of these, one level deep, and a member of a subcollection is a member of its
+parent; the platform's collection summary therefore lists more rows than five. A compound can belong to more
+than one collection, so rows overlap and are not added. The criterion of each collection is shown on the platform, on the page of the
+collection. The list can change before release 2.0.0 is published, and no count per collection is printed
+here.
 
 | Collection | What it holds |
 |---|---|
@@ -24,8 +27,9 @@ collection.
 
 ## Where to open them
 
-The [Collections](https://aurora.alchemia.solutions/collections) pages are open to read since the v1.3 release
-(live on 2026-10-26); the platform is otherwise a closed beta. The
-[Explorer](https://aurora.alchemia.solutions/explorer) and the download of a collection need an approved
-account. Sign-up is off for the public until the privacy policy is published. No download package is
-published yet.
+The platform is a closed beta for approved accounts. In the contract of platform version 1.4.0 the
+[Collections](https://aurora.alchemia.solutions/collections) pages, the
+[Explorer](https://aurora.alchemia.solutions/explorer) and the download of a collection need one; the
+instance that answers may differ. Sign-up
+for the public is not open: it opens as its own step after the next platform release is cut, with no date. No download package is published, and nothing
+here promises one.

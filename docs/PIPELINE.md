@@ -10,13 +10,13 @@ threshold and no code, and it will not.
 
 | Stage | What it does | What it gives |
 |---|---|---|
-| **S1** Collect sources | Each record is collected with its source and license. Every record keeps its own redistribution verdict, so the license is a mark on the data and never a silent filter | A record that carries where it came from |
-| **S2** Standardize and identify | Validates and standardizes each structure, merges duplicates across sources and gives each unique compound a permanent identifier | A stable `ALC<n>` identifier, never reassigned or reused |
-| **S3** Set protonation | Each molecule is prepared in the forms used for modeling, at physiological pH, under a stereochemistry policy | The prepared forms of the molecule |
-| **S4** Build 3D conformers | A 3D geometry is generated and checked by a validity gate | An approved geometry, or a mark that none was approved |
-| **S5** Compute properties | Each molecule is described by its properties: descriptors, fingerprints, structural alerts, ADMET predictions with an applicability domain, scaffolds and a learned embedding | The descriptors and properties of the compound |
-| **S6** Prepare for docking | Files are prepared for docking and checked | Files that a docking program can read |
-| **S7** Release and load | The release is assembled with a checksum manifest, loaded and checked against the record | A release that matches its record |
+| **G1** Collect sources | Each record is collected with its source and license. Every record keeps its own redistribution verdict, so the license is a mark on the data and never a silent filter | A record that carries where it came from |
+| **G2** Standardize and identify | Validates and standardizes each structure, merges duplicates across sources and gives each unique compound a public identifier | An `ALC<n>` identifier. Release 2.0.0 renumbered them once, and the old-to-new map is kept (see [SCHEMA.md](SCHEMA.md#identifiers)) |
+| **G3** Set protonation | Each molecule is prepared in the forms used for modeling, at physiological pH, under a stereochemistry policy | The prepared forms of the molecule |
+| **G4** Build 3D conformers | A 3D geometry is generated and checked by a validity gate | An approved geometry, or a mark that none was approved |
+| **G5** Compute properties | Each molecule is described by its properties: descriptors, fingerprints, structural alerts, ADMET predictions with an applicability domain, scaffolds and a learned embedding | The descriptors and properties of the compound |
+| **G6** Prepare for docking | Files are prepared for docking and checked | Files that a docking program can read |
+| **G7** Release and load | The release is assembled with a checksum manifest, loaded and reconciled with the files and the manifest | A release whose loaded rows match its manifest |
 
 ## Principles
 

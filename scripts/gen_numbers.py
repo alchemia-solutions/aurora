@@ -12,7 +12,7 @@ Usage (run from the repository root, or pass --root):
     python scripts/gen_numbers.py --check    # exit 1 if a block differs from the data
     python scripts/gen_numbers.py --selftest
 
-Exit codes: 0 in sync, 1 out of sync, 2 unreadable input or missing marker.
+Exit codes: 0 in sync, 1 out of sync, 2 unreadable input, missing field or missing marker.
 Licensed under Apache-2.0 (LICENSE-CODE).
 """
 from __future__ import annotations
@@ -37,17 +37,23 @@ def badge_number(value: int) -> str:
     return f"{value:,}".replace(",", "%2C")
 
 
+def val(r: dict, key: str) -> int:
+    return r[key]["value"]
+
+
 def render_badges(d: dict) -> str:
     r = d["registry"]
+    release_value = "Release_" + d["version"] + "_loaded%2C_not_published"
     items = [
-        ("Data licence", "CC_BY--SA_4.0_%2B_CC_BY--NC_4.0", ORANGE, "LICENSE", "CC BY-SA 4.0 and CC BY-NC 4.0"),
-        ("Registry", d["version"] + "_(unreleased)", ORANGE, "CITATION.cff", d["version"] + " (unreleased)"),
-        ("Compounds", badge_number(r["compounds"]), ORANGE, "#at-a-glance", n(r["compounds"])),
-        ("Sources", str(r["sources"]), GRAY, "docs/SOURCES.md", str(r["sources"])),
+        ("Data licences", "CC_BY--SA_4.0_%2B_CC_BY--NC_4.0", ORANGE, "LICENSE",
+         "CC BY-SA 4.0 and CC BY-NC 4.0"),
+        ("Status", release_value, ORANGE, "CHANGELOG.md", "release " + d["version"] + " loaded, not published"),
+        ("Complete, both packages", badge_number(val(r, "complete")), ORANGE, "#at-a-glance",
+         n(val(r, "complete"))),
     ]
     lines = []
     for label, value, color, link, alt in items:
-        label_q = label.replace(" ", "_")
+        label_q = label.replace(" ", "_").replace(",", "%2C")
         lines.append(
             f"[![{label}: {alt}]"
             f"(https://img.shields.io/badge/{label_q}-{value}-{color}"
@@ -59,24 +65,24 @@ def render_badges(d: dict) -> str:
 def render_glance(d: dict) -> str:
     r = d["registry"]
     rows = [
-        ("Compounds in the registry (both areas)", r["compounds"]),
-        ("Complete: approved 3D geometry, SDF and PDBQT", r["complete"]),
-        ("Incomplete: full identity, no approved 3D geometry", r["incomplete"]),
-        ("In the AURORA package (CC BY-SA 4.0)", r["package_aurora"]),
-        ("In the AURORA-NC package (CC BY-NC 4.0)", r["package_aurora_nc"]),
-        ("Public sources", r["sources"]),
-        ("Raw source records read", r["raw_records"]),
-        ("Names and synonyms", r["names_and_synonyms"]),
-        ("Learned embeddings (768 dimensions)", r["learned_embeddings"]),
-        ("Bioactivity measurements", r["bioactivity_measurements"]),
+        ("Complete compounds of the release: approved 3D geometry, SDF and PDBQT", "complete"),
+        ("Incomplete compounds, kept apart, in no package and not in the API", "incomplete"),
+        ("Complete and incomplete, both areas", "total_both_areas"),
+        ("Package AURORA (licence CC BY-SA 4.0)", "package_aurora"),
+        ("Package AURORA-NC (licence CC BY-NC 4.0), in addition", "package_aurora_nc"),
+        ("Learned embeddings, across both packages", "learned_embeddings"),
+        ("Name rows (rows, not distinct names)", "name_rows"),
     ]
-    out = ["| | |", "|---|---:|"]
-    out += [f"| {label} | {n(v)} |" for label, v in rows]
+    out = ["| | | Read on |", "|---|---:|---|"]
+    for label, k in rows:
+        out.append(f"| {label} | {n(val(r, k))} | {r[k]['asof']} |")
     out.append("")
     out.append(
-        f"*Population: the AURORA registry, release {d['version']}, unpublished. Read on {r['asof']}. "
-        f"Source: {r['source']}. Complete and incomplete add up to the registry; a compound is in "
-        f"exactly one package.*"
+        f"*Population: {r['population']}. Status: {d['status']}. The two packages add up to the complete set: "
+        f"{n(val(r, 'package_aurora'))} + {n(val(r, 'package_aurora_nc'))} = {n(val(r, 'complete'))}. "
+        f"The release as a whole has {n(val(r, 'complete'))} complete compounds, in two packages. "
+        f"The embeddings and name rows are row counts of their tables, read in that database; the content of the tables was not compared. "
+        f"Each figure carries the date it was read.*"
     )
     return "\n".join(out)
 
@@ -111,7 +117,11 @@ def process(root: Path, check: bool) -> int:
             if not rx.search(new):
                 print(f"ERROR: {rel} has no block '{name}'", file=sys.stderr)
                 return 2
-            body = RENDERERS[name](data)
+            try:
+                body = RENDERERS[name](data)
+            except (KeyError, TypeError) as exc:
+                print(f"ERROR: data/numbers.json lacks or malforms a field used by '{name}': {exc!r}", file=sys.stderr)
+                return 2
             new = rx.sub(lambda m: m.group(1) + body + m.group(3), new)
         if new != text:
             if check:
@@ -126,13 +136,16 @@ def process(root: Path, check: bool) -> int:
 
 
 def selftest() -> int:
+    def f(v: int) -> dict:
+        return {"value": v, "asof": "2000-01-01", "id": "t"}
+
     sample = {
         "version": "9.9.9",
+        "status": "test status",
         "registry": {
-            "asof": "2000-01-01", "source": "test", "compounds": 1234, "complete": 1000,
-            "incomplete": 234, "package_aurora": 900, "package_aurora_nc": 100, "sources": 3,
-            "raw_records": 5000, "names_and_synonyms": 7000, "learned_embeddings": 1200,
-            "bioactivity_measurements": 10,
+            "population": "test population", "total_both_areas": f(1234), "complete": f(1000),
+            "incomplete": f(234), "package_aurora": f(900), "package_aurora_nc": f(100),
+            "learned_embeddings": f(1000), "name_rows": f(5678),
         },
     }
     with tempfile.TemporaryDirectory() as tmp:
@@ -144,7 +157,14 @@ def selftest() -> int:
         assert process(root, check=True) == 1, "stale blocks must fail --check"
         assert process(root, check=False) == 0
         assert process(root, check=True) == 0, "regenerated blocks must pass --check"
-        assert "1,234" in (root / "README.md").read_text(encoding="utf-8")
+        text = (root / "README.md").read_text(encoding="utf-8")
+        assert "1,234" in text and "900 + 100 = 1,000" in text and "5,678" in text
+        sample["registry"]["package_aurora"] = f(901)
+        (root / "data" / "numbers.json").write_text(json.dumps(sample), encoding="utf-8")
+        assert process(root, check=True) == 1, "a changed value must fail --check"
+        (root / "data" / "numbers.json").write_text(json.dumps({**sample, "registry": {}}), encoding="utf-8")
+        assert process(root, check=True) == 2, "a missing field must fail with 2, not crash"
+        (root / "data" / "numbers.json").write_text(json.dumps(sample), encoding="utf-8")
         (root / "README.md").write_text("no markers", encoding="utf-8")
         assert process(root, check=True) == 2, "a missing marker must fail with 2"
         (root / "data" / "numbers.json").write_text("{broken", encoding="utf-8")

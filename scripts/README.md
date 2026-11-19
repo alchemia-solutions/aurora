@@ -7,7 +7,7 @@
 
 ```bash
 python scripts/gen_numbers.py            # rewrite the blocks
-python scripts/gen_numbers.py --check    # exit 1 if a block differs from the data
+python scripts/gen_numbers.py --check    # exit 1 if a block differs from the data, 2 if a field is missing
 python scripts/gen_numbers.py --selftest # prove the check in both directions
 python scripts/check_links.py            # relative links, anchors and platform links
 python scripts/check_links.py --selftest

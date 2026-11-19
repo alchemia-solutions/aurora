@@ -7,28 +7,26 @@ No. The data is released under Creative Commons licences. The ATHANOR pipeline i
 this repository grants a right in it.
 
 **Can I download the database?**
-Not yet. No download package is published. Downloading a collection on the platform needs an approved
-account.
+No. No download package is published, and no date is promised. Release 2.0.0 is in preparation.
 
 **Can I use the API?**
-The API needs a Bearer token from an approved account, except for the routes listed in [API.md](API.md).
-The platform is a closed beta (the v1.3 release has been live since 2026-10-26), and sign-up for the public is off until the
-privacy policy is published.
+The API needs a Bearer token from an approved account, except for the health probes, the sign-in doors and
+one route of aggregates ([API.md](API.md)). The platform is a closed beta. The Terms of Use and the Privacy Policy are final (version 1.0), and sign-up for the
+public is not open: it opens as its own step after the next platform release is cut, with no date.
 
 **Which pages of the platform are open?**
-Since the v1.3 release: Home, Dashboard, the Collections pages, Collaborate and Documents. The
-Explorer and the downloads need an approved account.
+None is promised as open. The platform is a closed beta for approved accounts.
 
 **Which licence covers what?**
-The AURORA package and the documentation are CC BY-SA 4.0, and so are the figures, except the names,
-wordmarks and symbols inside them, which are not licensed. The AURORA-NC package is
-CC BY-NC 4.0. The code in `examples/` and `scripts/` is Apache-2.0. See [LICENSE](../LICENSE) and
+The documentation is CC BY-SA 4.0, and so are the figures, except the names, wordmarks and symbols inside
+them, which are not licensed. The AURORA package is under CC BY-SA 4.0 and the AURORA-NC package
+under CC BY-NC 4.0; neither is published yet. The code in `examples/` and `scripts/` is Apache-2.0. See [LICENSE](../LICENSE) and
 [LICENSE-CODE](../LICENSE-CODE).
 
 **What terms apply to the data?**
-The main package is offered under CC BY-SA 4.0 and the companion package, AURORA-NC, under CC BY-NC 4.0.
-The official licence texts govern: read them at the links in [LICENSE](../LICENSE). The licence status of
-some sources for the ShareAlike condition is under review by counsel. No package is published yet.
+The main package is under CC BY-SA 4.0 and the companion package, AURORA-NC, under CC BY-NC 4.0. Each compound belongs to exactly one package.
+The official licence texts govern: read them at the links in [LICENSE](../LICENSE). Each source keeps its
+own terms, and the licence status of some sources for the ShareAlike condition is not settled. No package is published yet.
 
 **What does "complete" mean?**
 A compound with an approved 3D geometry, a docking file and the core feature tables. Some exhaustive
@@ -37,6 +35,16 @@ descriptors are missing on some compounds. Compounds without an approved geometr
 **Does "docking-ready" mean it is ready for my target?**
 No. It means the files passed the pipeline checks. Protonation and tautomer states are not validated for
 every target.
+
+**How many compounds does release 2.0.0 have?**
+The complete compounds of the release are split in two packages, AURORA and AURORA-NC, and the two add up to
+the complete set. The incomplete compounds are kept apart and are in no package. The figures, with their
+dates, are in the [README](../README.md#at-a-glance). Release 2.0.0 is not published.
+
+**Does AURORA have bioactivity data?**
+The release database of 2.0.0 holds bioactivity measurements about the compounds AURORA holds, each row with its own
+licence, and not every row is redistributable. The platform does not serve them yet. AURORA does not replace
+ChEMBL as a bioactivity reference.
 
 **Are the ADMET values measured?**
 No. They are predictions with an applicability domain. Use them for triage.
