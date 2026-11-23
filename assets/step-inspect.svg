@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-74.78 -63.90 149.56 111.30" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" aria-hidden="true"><rect x="-74.78" y="-63.9" width="149.56" height="111.3" fill="#000000" stroke="none"/>
+<path d="M-64.78,0.00L0.00,37.40L0.00,37.39L-64.78,-0.01Z" fill="none" stroke="#848388" stroke-opacity="0.6" stroke-dasharray="4 3"/>
+<path d="M0.00,37.40L64.78,0.00L64.78,-0.01L0.00,37.39Z" fill="none" stroke="#848388" stroke-opacity="0.6" stroke-dasharray="4 3"/>
+<path d="M0.00,-37.41L64.78,-0.01L0.00,37.39L-64.78,-0.01Z" fill="none" stroke="#848388" stroke-opacity="0.6" stroke-dasharray="4 3"/>
+<path d="M0.00,-25.30L0.00,-47.30" fill="none" stroke="#B7B6BB" stroke-opacity="0.78" stroke-dasharray="4 3"/>
+<path d="M43.82,0.00L43.82,-22.00" fill="none" stroke="#B7B6BB" stroke-opacity="0.78" stroke-dasharray="4 3"/>
+<path d="M-43.82,0.00L-43.82,-22.00" fill="none" stroke="#B7B6BB" stroke-opacity="0.78" stroke-dasharray="4 3"/>
+<path d="M0.00,25.30L0.00,3.30" fill="none" stroke="#B7B6BB" stroke-opacity="0.78" stroke-dasharray="4 3"/>
+<path d="M-49.54,-22.00L0.00,6.60L0.00,3.30L-49.54,-25.30Z" fill="none" stroke="#B7B6BB" stroke-opacity="0.78" stroke-dasharray="4 3"/>
+<path d="M0.00,6.60L49.54,-22.00L49.54,-25.30L0.00,3.30Z" fill="none" stroke="#B7B6BB" stroke-opacity="0.78" stroke-dasharray="4 3"/>
+<path d="M0.00,-53.90L49.54,-25.30L0.00,3.30L-49.54,-25.30Z" fill="none" stroke="#FFFFFF" stroke-opacity="0.92" stroke-dasharray="4 3"/>
+<path d="M-15.24,-25.30L0.00,-16.50L0.00,-34.10L-15.24,-42.90Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M0.00,-16.50L15.24,-25.30L15.24,-42.90L0.00,-34.10Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M0.00,-51.70L15.24,-42.90L0.00,-34.10L-15.24,-42.90Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<g id="acento">
+<path d="M0.00,-38.62C-4.09,-38.62 -7.41,-40.54 -7.41,-42.90C-7.41,-45.26 -4.09,-47.18 -0.00,-47.18C4.09,-47.18 7.41,-45.26 7.41,-42.90C7.41,-40.54 4.09,-38.62 0.00,-38.62Z" fill="#000000" stroke="#FF9E00"/>
+</g>
+</svg>

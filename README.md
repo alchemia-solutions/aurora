@@ -32,17 +32,17 @@ promises a date or an access. The platform addresses that documents here point t
 
 <table>
 <tr>
-<td align="center" width="20%"><img src="assets/collection-aurora.svg" width="72" alt="AURORA collection symbol"><br><b>AURORA</b><br><sub>the full catalog</sub></td>
-<td align="center" width="20%"><img src="assets/collection-natural.svg" width="72" alt="Natural Space collection symbol"><br><b>Natural Space</b><br><sub>natural products</sub></td>
-<td align="center" width="20%"><img src="assets/collection-drug.svg" width="72" alt="Drug Space collection symbol"><br><b>Drug Space</b><br><sub>drugs and drug-like</sub></td>
-<td align="center" width="20%"><img src="assets/collection-bioactivity.svg" width="72" alt="Bioactivity Space collection symbol"><br><b>Bioactivity Space</b><br><sub>with measurements</sub></td>
-<td align="center" width="20%"><img src="assets/collection-diversity.svg" width="72" alt="Diversity Space collection symbol"><br><b>Diversity Space</b><br><sub>chemical diversity</sub></td>
+<td align="center" width="20%"><img src="assets/collection-aurora.svg" width="150" alt="AURORA, the full catalog: a cube in a frame of cubes"><br><b>AURORA</b><br><sub>the full catalog</sub></td>
+<td align="center" width="20%"><img src="assets/collection-natural.svg" width="150" alt="Natural Space: a sprout with leaves"><br><b>Natural Space</b><br><sub>natural products</sub></td>
+<td align="center" width="20%"><img src="assets/collection-drug.svg" width="150" alt="Drug Space: a capsule and a tablet"><br><b>Drug Space</b><br><sub>approved drugs, drug-like</sub></td>
+<td align="center" width="20%"><img src="assets/collection-bioactivity.svg" width="150" alt="Bioactivity Space: a target"><br><b>Bioactivity Space</b><br><sub>measured activity</sub></td>
+<td align="center" width="20%"><img src="assets/collection-diversity.svg" width="150" alt="Diversity Space: distinct blocks"><br><b>Diversity Space</b><br><sub>distinct structures</sub></td>
 </tr>
 </table>
 
 <br>
 
-[What it is](#what-it-is) · [How it is made](#how-aurora-is-made) · [At a glance](#at-a-glance) · [Collections](#the-five-top-level-collections) · [Packages](#packages) · [Sources](#sources) · [Download and access](#download-and-access) · [Docs index](docs/README.md) · [Read the API](#read-aurora-through-the-api) · [Limits](#honest-limitations) · [Changelog](CHANGELOG.md) · [Cite](#citing) · [Contribute](#contributing)
+[What it is](#what-it-is) · [How it works](#how-it-works) · [How it is made](#how-aurora-is-made) · [The platform](#the-platform) · [At a glance](#at-a-glance) · [Collections](#the-five-top-level-collections) · [Packages](#packages) · [Sources](#sources) · [Download and access](#download-and-access) · [Docs index](docs/README.md) · [Read the API](#read-aurora-through-the-api) · [Limits](#honest-limitations) · [Changelog](CHANGELOG.md) · [Cite](#citing) · [Contribute](#contributing)
 
 </div>
 
@@ -100,6 +100,19 @@ decided for public text (see [docs/SOURCES.md](docs/SOURCES.md)). AURORA does no
 </td></tr>
 </table>
 
+## How it works
+
+The same four steps open the platform's Home. The figures below are the ones the platform shows.
+
+<table>
+<tr>
+<td align="center" width="25%"><img src="assets/step-collect.svg" width="220" alt="Collect: sources read record by record"><br><b>1. Collect</b><br><sub>Public sources are read record by record, each with its licence.</sub></td>
+<td align="center" width="25%"><img src="assets/step-curate.svg" width="220" alt="Curate: layers of checks"><br><b>2. Curate</b><br><sub>ATHANOR standardizes and deduplicates each structure and checks its 3D geometry.</sub></td>
+<td align="center" width="25%"><img src="assets/step-release.svg" width="220" alt="Release: a document of records"><br><b>3. Release</b><br><sub>The curated records are loaded into AURORA, each traced to its source.</sub></td>
+<td align="center" width="25%"><img src="assets/step-inspect.svg" width="220" alt="Inspect: a record on a stage"><br><b>4. Inspect</b><br><sub>With an approved account, search, filter and turn molecules in 3D in the Explorer.</sub></td>
+</tr>
+</table>
+
 ## How AURORA is made
 
 Every compound in AURORA passes through **ATHANOR**, the private curation pipeline of Alchemia Solutions. An
@@ -113,17 +126,38 @@ fails a gate does not move on.
 
 | Gate | What it does | What AURORA gets from it |
 |---|---|---|
-| **G1** Collect | Sources are registered, read and checked. Every record keeps its own licence verdict | A record that carries where it came from, and under which terms |
+| **G1** Collect sources | Sources are registered, read and checked. Every record keeps its own licence verdict | A record that carries where it came from, and under which terms |
 | **G2** Standardize and identify | Structures are validated and standardized, duplicates across sources merge, each compound gets an `ALC` identifier | One compound, one permanent identifier, names and cross-references |
-| **G3** Protonate | Each molecule is set to its state at physiological pH, under a stereochemistry policy | A declared protonation state per compound |
-| **G4** Build 3D | A 3D conformer is embedded, optimized and then validated by a validity gate | An approved 3D conformer, or an explicit mark that none was approved |
-| **G5** Characterize | Descriptors, fingerprints, structural alerts, predicted ADMET, scaffolds and a learned embedding are computed | The feature tables of every package |
-| **G6** Dock-ready | A PDBQT file is prepared and checked against readiness rules | A file that passed the readiness checks |
-| **G7** Release | The release is exported, packaged with checksums, loaded and reconciled with the registry | A release whose loaded rows match its manifest |
+| **G3** Set protonation | Each molecule is set to its state at physiological pH, under a stereochemistry policy | A declared protonation state per compound |
+| **G4** Build 3D conformers | A 3D conformer is embedded, optimized and then validated by a validity gate | An approved 3D conformer, or an explicit mark that none was approved |
+| **G5** Compute properties | Descriptors, fingerprints, structural alerts, predicted ADMET, scaffolds and a learned embedding are computed | The feature tables of every package |
+| **G6** Prepare for docking | A PDBQT file is prepared and checked against readiness rules | A file that passed the readiness checks |
+| **G7** Release and load | The release is exported, packaged with checksums, loaded and reconciled with the registry | A release whose loaded rows match its manifest |
 
 Each gate is described in full, sub-stage by sub-stage, in **[docs/PIPELINE.md](docs/PIPELINE.md)**. The
 pipeline exists because its predecessor reported near-total coverage while many of its files carried wrong
 stereochemistry. The lesson is the rule of the project: no coverage metric detects a correctness error.
+
+## The platform
+
+<div align="center">
+<img src="assets/platform.svg" alt="The AURORA platform: sources flow through the curation line to the released database" width="100%">
+</div>
+
+The **AURORA Platform** (version 1.5.1, deployed on 2026-11-23) is the way into the database: a REST API and a
+web app at [aurora.alchemia.solutions](https://aurora.alchemia.solutions).
+
+| Page | What you do there |
+|---|---|
+| **Home** | See the four steps, the five collections, the sources and a preview of the Explorer |
+| **Collections** | Read each collection's rule, its provenance and its packages, and fetch its bundles |
+| **Explorer** | Search and filter the catalog, turn a molecule in 3D, read its identity, properties and predicted ADMET, and use **Download Data** for one compound |
+| **Dashboard** | Read charts that describe the database |
+| **Docs** | Methods, data dictionary, API, tutorials, licence, privacy and how to cite |
+| **Collaborate** | Register a study or suggest a database for ATHANOR to consider |
+| **Profile** | Manage the account and its API access |
+
+Access is described in [Download and access](#download-and-access).
 
 ## At a glance
 
@@ -235,13 +269,16 @@ package is published.
 
 ## Download and access
 
-Read from the contract of platform version 1.4.0 of the closed beta on 2026-11-17, and from the packages
-manifest on 2026-11-20. The instance that answers may differ, and no platform was read for this update.
+Platform version 1.5.1 was deployed on 2026-11-23, and the deploy checks of that day found the sign-up open and the
+anonymous routes answering. The routes, scopes and switches below are read from the contract of version 1.4.0 of
+2026-11-17 and from the packages manifest of 2026-11-20, which [docs/API.md](docs/API.md) still follows. The
+contract of 1.5.1 is in the platform repository and has not been merged into these documents yet.
 
 - **Release 2.0.0** is loaded and not published: no tag, no release, no DOI, no anonymous download.
 - **The platform** is a closed beta for approved accounts. The Terms of Use, the Licence page and the Privacy
-  Policy are final (version 1.0). Sign-up for the public is not open: it opens as its own step after the next
-  platform release is cut, and no date is promised.
+  Policy are final (version 1.0). **Sign-up is open** at the platform, by request: a new account is created pending,
+  and an administrator approves it before it can use the Explorer and the downloads. No date is promised for
+  access without an account.
 - **How to download.** Sign in with an approved account. A collection page offers the bundles of that collection, and
   the Explorer has a "Download Data" button for one compound. The one-compound package has its own API route,
   `GET /v1/compounds/{alchemia_id}/package`, in the platform code of 2026-11-19. It is not in the 1.4.0

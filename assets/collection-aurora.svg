@@ -1,16 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FF9E00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="banco-aurora">
-<title>banco-aurora</title>
-<circle cx="12" cy="12" r="3.1"/>
-<path d="M12.00 8.90L12.00 5.65"/>
-<circle cx="12.00" cy="3.75" r="1.9"/>
-<path d="M14.68 10.45L17.50 8.83"/>
-<circle cx="19.14" cy="7.88" r="1.9"/>
-<path d="M14.68 13.55L17.50 15.17"/>
-<circle cx="19.14" cy="16.12" r="1.9"/>
-<path d="M12.00 15.10L12.00 18.35"/>
-<circle cx="12.00" cy="20.25" r="1.9"/>
-<path d="M9.32 13.55L6.50 15.17"/>
-<circle cx="4.86" cy="16.12" r="1.9"/>
-<path d="M9.32 10.45L6.50 8.82"/>
-<circle cx="4.86" cy="7.87" r="1.9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0.00 0.00 240.00 240.00" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" role="img"><rect x="0" y="0" width="240" height="240" fill="#000000" stroke="none"/>
+<title>Full</title>
+<desc>O conjunto de todos: uma caixa em arame com quatro pecas.</desc>
+<path d="M120.00,112.15L215.13,167.08L120.00,222.00L24.87,167.08Z" fill="none" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M120.00,112.15L120.00,18.00" fill="none" stroke="#848388" stroke-opacity="0.6" stroke-dasharray="3 3"/>
+<path d="M215.13,167.08L215.13,72.92" fill="none" stroke="#848388" stroke-opacity="0.6"/>
+<path d="M24.87,167.08L24.87,72.92" fill="none" stroke="#848388" stroke-opacity="0.6"/>
+<path d="M120.00,222.00L120.00,127.85" fill="none" stroke="#848388" stroke-opacity="0.6" stroke-dasharray="3 3"/>
+<path d="M120.00,18.00L215.13,72.92L120.00,127.85L24.87,72.92Z" fill="none" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M87.38,145.11L120.00,163.94L120.00,126.28L87.38,107.45Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M120.00,163.94L152.62,145.11L152.62,107.45L120.00,126.28Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M120.00,88.62L152.62,107.45L120.00,126.28L87.38,107.45Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M125.44,167.08L158.05,185.91L158.05,148.25L125.44,129.42Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M158.05,185.91L190.67,167.08L190.67,129.42L158.05,148.25Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M158.05,110.58L190.67,129.42L158.05,148.25L125.44,129.42Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M49.33,167.08L81.95,185.91L81.95,148.25L49.33,129.42Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M81.95,185.91L114.56,167.08L114.56,129.42L81.95,148.25Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M81.95,110.58L114.56,129.42L81.95,148.25L49.33,129.42Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<g id="acento">
+<path d="M87.38,189.05L120.00,207.88L120.00,170.22L87.38,151.38Z" fill="#000000" stroke="#FF9E00"/>
+<path d="M120.00,207.88L152.62,189.05L152.62,151.38L120.00,170.22Z" fill="#000000" stroke="#FF9E00"/>
+<path d="M120.00,132.55L152.62,151.38L120.00,170.22L87.38,151.38Z" fill="#000000" stroke="#FF9E00"/>
+</g>
 </svg>

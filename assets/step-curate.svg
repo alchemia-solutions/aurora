@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-53.82 -101.76 107.64 107.24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" aria-hidden="true"><rect x="-53.82" y="-101.76" width="107.64" height="107.24" fill="#000000" stroke="none"/>
+<path d="M0.00,-8.80L0.00,-13.20" fill="none" stroke="#848388" stroke-opacity="0.6"/>
+<path d="M-13.34,-13.20L0.00,-5.50L0.00,-8.80L-13.34,-16.50Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-5.50L13.34,-13.20L13.34,-16.50L0.00,-8.80Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-24.20L13.34,-16.50L0.00,-8.80L-13.34,-16.50Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M-20.96,-23.10L0.00,-11.00L0.00,-14.30L-20.96,-26.40Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-11.00L20.96,-23.10L20.96,-26.40L0.00,-14.30Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-38.50L20.96,-26.40L0.00,-14.30L-20.96,-26.40Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M-28.58,-33.00L0.00,-16.50L0.00,-19.80L-28.58,-36.30Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-16.50L28.58,-33.00L28.58,-36.30L0.00,-19.80Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-52.80L28.58,-36.30L0.00,-19.80L-28.58,-36.30Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M-36.20,-42.90L0.00,-22.00L0.00,-25.30L-36.20,-46.20Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-22.00L36.20,-42.90L36.20,-46.20L0.00,-25.30Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-67.10L36.20,-46.20L0.00,-25.30L-36.20,-46.20Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M-43.82,-52.80L0.00,-27.50L0.00,-30.80L-43.82,-56.10Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-27.50L43.82,-52.80L43.82,-56.10L0.00,-30.80Z" fill="#000000" stroke="#B7B6BB" stroke-opacity="0.78"/>
+<path d="M0.00,-81.40L43.82,-56.10L0.00,-30.80L-43.82,-56.10Z" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M0.00,-56.10L0.00,-71.50" fill="none" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M-22.86,-73.79C-23.83,-73.79 -24.61,-74.24 -24.61,-74.80C-24.61,-75.36 -23.83,-75.81 -22.86,-75.81C-21.90,-75.81 -21.11,-75.36 -21.11,-74.80C-21.11,-74.24 -21.90,-73.79 -22.86,-73.79Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M18.10,-89.74C17.13,-89.74 16.35,-90.19 16.35,-90.75C16.35,-91.31 17.13,-91.76 18.10,-91.76C19.07,-91.76 19.85,-91.31 19.85,-90.75C19.85,-90.19 19.07,-89.74 18.10,-89.74Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M10.48,-80.94C9.51,-80.94 8.73,-81.39 8.73,-81.95C8.73,-82.51 9.51,-82.96 10.48,-82.96C11.45,-82.96 12.23,-82.51 12.23,-81.95C12.23,-81.39 11.45,-80.94 10.48,-80.94Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M-6.67,-80.94C-7.64,-80.94 -8.42,-81.39 -8.42,-81.95C-8.42,-82.51 -7.64,-82.96 -6.67,-82.96C-5.70,-82.96 -4.92,-82.51 -4.92,-81.95C-4.92,-81.39 -5.70,-80.94 -6.67,-80.94Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-opacity="0.92"/>
+<path d="M0.00,-8.80L0.00,-13.20" fill="none" stroke="#848388" stroke-opacity="0.6"/>
+<g id="acento">
+<path d="M0.00,-4.52C-4.09,-4.52 -7.41,-6.44 -7.41,-8.80C-7.41,-11.16 -4.09,-13.08 -0.00,-13.08C4.09,-13.08 7.41,-11.16 7.41,-8.80C7.41,-6.44 4.09,-4.52 0.00,-4.52Z" fill="#000000" stroke="#FF9E00"/>
+</g>
+</svg>

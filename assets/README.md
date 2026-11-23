@@ -7,7 +7,9 @@ Figures and symbols for the README and the documents.
 | `hero.svg` | The AURORA banner at the top of the root README |
 | `gates.svg` | The seven ATHANOR gates, G1 to G7, as cards |
 | `flow.svg` | The ATHANOR pipeline, gates G1 to G7, ending at the AURORA bank (used in docs/PIPELINE.md) |
-| `collection-aurora.svg`, `collection-natural.svg`, `collection-drug.svg`, `collection-bioactivity.svg`, `collection-diversity.svg` | The symbol of each of the five collections |
+| `collection-aurora.svg`, `collection-natural.svg`, `collection-drug.svg`, `collection-bioactivity.svg`, `collection-diversity.svg` | The isometric figure of each of the five collections, the ones the platform v1.5.1 shows |
+| `step-collect.svg`, `step-curate.svg`, `step-release.svg`, `step-inspect.svg` | The four steps of the platform's Home |
+| `platform.svg` | The landing scene of the platform: sources, the curation line and the released database |
 
 ## How to use
 
