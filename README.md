@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hero.svg" alt="ATHANOR and AURORA, by ALCHEMIA SOLUTIONS" width="100%">
+<img src="assets/hero.svg" alt="AURORA, a molecular database for computer-aided drug design, by Alchemia Solutions" width="100%">
 
 <br>
 
@@ -10,7 +10,17 @@
 [![Complete, both packages: 1,000,000](https://img.shields.io/badge/Complete%2C_both_packages-1%2C000%2C000-FF9E00?style=for-the-badge&labelColor=000000)](#at-a-glance)
 <!-- numbers:end badges -->
 
-**ATHANOR curates the data. AURORA is the database it produces.**
+[![Platform: closed beta](https://img.shields.io/badge/Platform-Closed_beta-FFB84D?style=flat-square&labelColor=000000)](https://aurora.alchemia.solutions)
+[![API: REST and OpenAPI](https://img.shields.io/badge/API-REST_%C2%B7_OpenAPI-FFB84D?style=flat-square&labelColor=000000)](docs/API.md)
+[![Formats: SDF, PDBQT, Parquet](https://img.shields.io/badge/Formats-SDF_%C2%B7_PDBQT_%C2%B7_Parquet-FFB84D?style=flat-square&labelColor=000000)](#packages)
+[![Collections: five](https://img.shields.io/badge/Collections-5-FFB84D?style=flat-square&labelColor=000000)](#the-five-top-level-collections)
+[![Docs](https://img.shields.io/badge/Docs-Index-D1CFD5?style=flat-square&labelColor=000000)](docs/README.md)
+[![Cite](https://img.shields.io/badge/Cite-CITATION.cff-D1CFD5?style=flat-square&labelColor=000000)](CITATION.cff)
+[![Made by Alchemia Solutions](https://img.shields.io/badge/Made_by-Alchemia_Solutions-9D4EDD?style=flat-square&labelColor=000000)](https://alchemia.solutions)
+
+### AURORA is a molecular database for computer-aided drug design. Every compound has a curated structure, a validated 3D conformer, a docking file, computed features and its provenance.
+
+ATHANOR, the private pipeline behind it, curates the data. Its seven gates are described in [docs/PIPELINE.md](docs/PIPELINE.md).
 
 Release 2.0.0 is loaded in the production database (read 2026-11-18). It is not published: the packages
 are built and staged in object storage, with a checksum for every file (manifest read 2026-11-20), and no
@@ -18,7 +28,21 @@ anonymous download is open. The platform is a closed beta for approved accounts.
 promises a date or an access. The platform addresses that documents here point to are listed in
 [`data/site-links.json`](data/site-links.json), the one place to check when the state changes.
 
-[What it is](#what-it-is) · [The pipeline](#the-athanor-pipeline) · [At a glance](#at-a-glance) · [Collections](#the-five-top-level-collections) · [Packages](#packages) · [Sources](#sources) · [Download and access](#download-and-access) · [Docs index](docs/README.md) · [Read the API](#read-aurora-through-the-api) · [Limits](#honest-limitations) · [Changelog](CHANGELOG.md) · [Cite](#citing) · [Contribute](#contributing)
+<br>
+
+<table>
+<tr>
+<td align="center" width="20%"><img src="assets/collection-aurora.svg" width="72" alt="AURORA collection symbol"><br><b>AURORA</b><br><sub>the full catalog</sub></td>
+<td align="center" width="20%"><img src="assets/collection-natural.svg" width="72" alt="Natural Space collection symbol"><br><b>Natural Space</b><br><sub>natural products</sub></td>
+<td align="center" width="20%"><img src="assets/collection-drug.svg" width="72" alt="Drug Space collection symbol"><br><b>Drug Space</b><br><sub>drugs and drug-like</sub></td>
+<td align="center" width="20%"><img src="assets/collection-bioactivity.svg" width="72" alt="Bioactivity Space collection symbol"><br><b>Bioactivity Space</b><br><sub>with measurements</sub></td>
+<td align="center" width="20%"><img src="assets/collection-diversity.svg" width="72" alt="Diversity Space collection symbol"><br><b>Diversity Space</b><br><sub>chemical diversity</sub></td>
+</tr>
+</table>
+
+<br>
+
+[What it is](#what-it-is) · [How it is made](#how-aurora-is-made) · [At a glance](#at-a-glance) · [Collections](#the-five-top-level-collections) · [Packages](#packages) · [Sources](#sources) · [Download and access](#download-and-access) · [Docs index](docs/README.md) · [Read the API](#read-aurora-through-the-api) · [Limits](#honest-limitations) · [Changelog](CHANGELOG.md) · [Cite](#citing) · [Contribute](#contributing)
 
 </div>
 
@@ -76,28 +100,30 @@ decided for public text (see [docs/SOURCES.md](docs/SOURCES.md)). AURORA does no
 </td></tr>
 </table>
 
-## The ATHANOR pipeline
+## How AURORA is made
 
-An athanor is the alchemist's slow furnace, built to hold a constant heat for months. The pipeline has
-seven macro-stages, each with a quality gate rather than a bare count.
+Every compound in AURORA passes through **ATHANOR**, the private curation pipeline of Alchemia Solutions. An
+athanor is the alchemist's slow furnace, built to hold a constant heat for months. The pipeline has seven
+gates, **G1 to G7**, and each gate carries its own quality check rather than a bare count. A compound that
+fails a gate does not move on.
 
 <div align="center">
-<img src="assets/flow.svg" alt="The ATHANOR pipeline in seven stages, G1 to G7, from source acquisition to release reconciliation" width="100%">
+<img src="assets/gates.svg" alt="The seven ATHANOR gates, G1 to G7: collect, standardize, protonate, build 3D, characterize, dock-ready, release" width="100%">
 </div>
 
-| Stage | What it does |
-|---|---|
-| **G1** Collect sources | Each record is collected with its source and license |
-| **G2** Standardize and identify | Validates and standardizes each structure, merges duplicates and gives each compound an ALC identifier |
-| **G3** Set protonation | Each molecule is protonated at physiological pH, under a stereochemistry policy |
-| **G4** Build 3D conformers | A 3D conformer is embedded, minimized and then validated by a validity gate. It is approved, or marked as missing |
-| **G5** Compute properties | Physicochemical descriptors, fingerprints, structural alerts and predicted ADMET are computed for each molecule, with scaffolds and a learned embedding |
-| **G6** Prepare for docking | A PDBQT file is prepared for docking and checked against readiness rules |
-| **G7** Release and load | The release is assembled, loaded and reconciled with the registry |
+| Gate | What it does | What AURORA gets from it |
+|---|---|---|
+| **G1** Collect | Sources are registered, read and checked. Every record keeps its own licence verdict | A record that carries where it came from, and under which terms |
+| **G2** Standardize and identify | Structures are validated and standardized, duplicates across sources merge, each compound gets an `ALC` identifier | One compound, one permanent identifier, names and cross-references |
+| **G3** Protonate | Each molecule is set to its state at physiological pH, under a stereochemistry policy | A declared protonation state per compound |
+| **G4** Build 3D | A 3D conformer is embedded, optimized and then validated by a validity gate | An approved 3D conformer, or an explicit mark that none was approved |
+| **G5** Characterize | Descriptors, fingerprints, structural alerts, predicted ADMET, scaffolds and a learned embedding are computed | The feature tables of every package |
+| **G6** Dock-ready | A PDBQT file is prepared and checked against readiness rules | A file that passed the readiness checks |
+| **G7** Release | The release is exported, packaged with checksums, loaded and reconciled with the registry | A release whose loaded rows match its manifest |
 
-More in [docs/PIPELINE.md](docs/PIPELINE.md). The pipeline exists because its predecessor reported
-near-total coverage while many of its files carried wrong stereochemistry. The lesson is the rule of the
-project: no coverage metric detects a correctness error.
+Each gate is described in full, sub-stage by sub-stage, in **[docs/PIPELINE.md](docs/PIPELINE.md)**. The
+pipeline exists because its predecessor reported near-total coverage while many of its files carried wrong
+stereochemistry. The lesson is the rule of the project: no coverage metric detects a correctness error.
 
 ## At a glance
 
@@ -297,7 +323,7 @@ partnerships: contact@alchemia.solutions. The organization is at
 ```
 README.md  CHANGELOG.md  LICENSE  LICENSE-CODE  CITATION.cff
 CONTRIBUTING.md  CODE_OF_CONDUCT.md  SECURITY.md
-assets/      figures and collection symbols from the brand system (generated, never edited by hand)
+assets/      banner, gates figure, flow and collection symbols from the brand system (generated, never edited by hand)
 data/        numbers.json (the figures) and site-links.json (the platform links)
 docs/        SOURCES, PIPELINE, SCHEMA, DATA_DICTIONARY, COLLECTIONS, API, FAQ
 examples/    read-only calls to the API (Python, curl)

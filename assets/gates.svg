@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 250" width="1280" height="250" role="img" aria-label="The seven ATHANOR gates, G1 to G7">
+<title>The seven ATHANOR gates, G1 to G7</title>
+<rect width="1280" height="250" fill="#000000"/>
+<rect x="24" y="40" width="164" height="170" rx="10" fill="#0A0A0A" stroke="#808080" stroke-width="1.2"/>
+<text x="40" y="96" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FF9E00">G1</text>
+<text x="40" y="136" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FFFFFF">Collect</text>
+<text x="40" y="164" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Sources</text>
+<text x="40" y="182" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Licences</text>
+<text x="40" y="200" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Provenance</text>
+<path d="M188 125L202 125" stroke="#FF9E00" stroke-width="1.5"/>
+<rect x="202" y="40" width="164" height="170" rx="10" fill="#0A0A0A" stroke="#808080" stroke-width="1.2"/>
+<text x="218" y="96" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FF9E00">G2</text>
+<text x="218" y="136" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FFFFFF">Standardize</text>
+<text x="218" y="164" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Structure</text>
+<text x="218" y="182" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Identity</text>
+<text x="218" y="200" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Deduplication</text>
+<path d="M366 125L380 125" stroke="#FF9E00" stroke-width="1.5"/>
+<rect x="380" y="40" width="164" height="170" rx="10" fill="#0A0A0A" stroke="#808080" stroke-width="1.2"/>
+<text x="396" y="96" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FF9E00">G3</text>
+<text x="396" y="136" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FFFFFF">Protonate</text>
+<text x="396" y="164" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">State at</text>
+<text x="396" y="182" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">physiological pH</text>
+<text x="396" y="200" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Stereo policy</text>
+<path d="M544 125L558 125" stroke="#FF9E00" stroke-width="1.5"/>
+<rect x="558" y="40" width="164" height="170" rx="10" fill="#0A0A0A" stroke="#808080" stroke-width="1.2"/>
+<text x="574" y="96" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FF9E00">G4</text>
+<text x="574" y="136" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FFFFFF">Build 3D</text>
+<text x="574" y="164" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Conformers</text>
+<text x="574" y="182" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Force field</text>
+<text x="574" y="200" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Validity gate</text>
+<path d="M722 125L736 125" stroke="#FF9E00" stroke-width="1.5"/>
+<rect x="736" y="40" width="164" height="170" rx="10" fill="#0A0A0A" stroke="#808080" stroke-width="1.2"/>
+<text x="752" y="96" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FF9E00">G5</text>
+<text x="752" y="136" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FFFFFF">Characterize</text>
+<text x="752" y="164" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Descriptors</text>
+<text x="752" y="182" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">ADMET</text>
+<text x="752" y="200" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Embeddings</text>
+<path d="M900 125L914 125" stroke="#FF9E00" stroke-width="1.5"/>
+<rect x="914" y="40" width="164" height="170" rx="10" fill="#0A0A0A" stroke="#808080" stroke-width="1.2"/>
+<text x="930" y="96" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FF9E00">G6</text>
+<text x="930" y="136" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FFFFFF">Dock-ready</text>
+<text x="930" y="164" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">PDBQT files</text>
+<text x="930" y="182" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Readiness</text>
+<text x="930" y="200" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">checks</text>
+<path d="M1078 125L1092 125" stroke="#FF9E00" stroke-width="1.5"/>
+<rect x="1092" y="40" width="164" height="170" rx="10" fill="#0A0A0A" stroke="#FF9E00" stroke-width="1.2"/>
+<text x="1108" y="96" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="700" fill="#FF9E00">G7</text>
+<text x="1108" y="136" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#FF9E00">Release</text>
+<text x="1108" y="164" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Package</text>
+<text x="1108" y="182" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Load</text>
+<text x="1108" y="200" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080">Reconcile</text>
+<text x="24" y="26" font-family="'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#808080" letter-spacing="3">ATHANOR  |  SEVEN GATES, EACH WITH ITS OWN QUALITY CHECK</text>
+</svg>
