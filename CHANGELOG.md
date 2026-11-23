@@ -6,6 +6,54 @@ release history of the data: no release is published yet.
 
 Figures below are the ones in [`data/numbers.json`](data/numbers.json), with the date each was read.
 
+## [Unreleased] (2026-11-22): label of the one-compound download
+
+This entry changes one phrase. It changes no figure, no data, no schema and no licence text. Nothing is published.
+
+### Changed
+
+- `README.md` (Download and access): the Explorer button for one compound is called "Download Data", as the
+  platform audit of 2026-11-22 records (`docs/qc/2026-11-22-auditoria-conteudo-e-documents.md` of the platform
+  repository); it said "Download package". Not checked in a running instance.
+
+### Checked, not changed
+
+- Links: `scripts/check_links.py`, 26 files, 0 broken. Figures: `scripts/gen_numbers.py --check`, in sync.
+- The glance figures keep their reading date of 2026-11-18. A reading of the packages in object storage on
+  2026-11-22 was given in the request for this audit and is not recorded in any file read here, so it is not
+  printed.
+
+## [Unreleased] (2026-11-20): packages, sources with their terms, download and access, citation
+
+This entry changes wording and adds sections. It changes no data, no schema and no licence text. Nothing is
+published.
+
+### Changed
+
+- `README.md`: the section "Planned package layout" is now "Packages". It says what the two packages are, that each
+  collection has a set of six bundles (`sdf`, `pdbqt`, `descriptors`, `descriptors3d`, `admet`, `fingerprints`),
+  which collections have an AURORA set and which have an AURORA-NC set (no NC set for Bioactivity Space, because
+  AURORA-NC carries no bioactivity rows), what a one-compound `.zip` holds, and what the bundles do not carry.
+  Source: the bundle manifest and the reports of 2026-11-19 in the AURORA data repository.
+- `README.md` and `docs/SOURCES.md`: the sources of the platform's summary are listed with the package of each
+  source, the terms as recorded and the reference, including the three non-commercial ones (TCMBank, Drug
+  Repurposing Hub, AntibioticDB) and ChEMBL. BindingDB is described as bioactivity rows only, not a source of
+  compounds. "License under review" per row is replaced by the terms the sources state; the sentence about the
+  ShareAlike condition is unchanged.
+- `README.md`: "Availability" is now "Download and access": how a file is fetched, the scopes `download` and
+  `download_nc`, and the switch the one-compound download sits behind. No platform was read for this update.
+- `README.md` and `docs/FAQ.md`: the status line and the answer to "Can I download the database?" say that the
+  packages are staged in object storage and that no anonymous download is open.
+- `README.md`: the citation names the author (Alchemia LTDA) and the publisher (Alchemia Solutions), with the
+  BibTeX the platform shows. No DOI.
+- `docs/API.md`: the file row says the one-compound package route is in the platform code of 2026-11-19 and not
+  in the 1.4.0 contract the page follows.
+
+### Not changed
+
+- The figures of the glance table, `LICENSE`, `CITATION.cff` and the sentence about the ShareAlike status of some
+  sources. The count of bundles and the counts per collection are not printed here.
+
 ## [Unreleased] (2026-11-18, claim gate): figures withdrawn, search routes and package layout corrected
 
 This entry changes wording and the figures of the glance table. It changes no data, no schema and no licence

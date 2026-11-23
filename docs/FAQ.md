@@ -7,7 +7,9 @@ No. The data is released under Creative Commons licences. The ATHANOR pipeline i
 this repository grants a right in it.
 
 **Can I download the database?**
-No. No download package is published, and no date is promised. Release 2.0.0 is in preparation.
+Not openly. The packages are built and staged in object storage, but release 2.0.0 is not published and no
+date is promised. The platform is meant to hand the files to approved accounts: see
+[Download and access](../README.md#download-and-access) and [Packages](../README.md#packages).
 
 **Can I use the API?**
 The API needs a Bearer token from an approved account, except for the health probes, the sign-in doors and

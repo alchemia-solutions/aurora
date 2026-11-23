@@ -12,12 +12,13 @@
 
 **ATHANOR curates the data. AURORA is the database it produces.**
 
-Release 2.0.0 is loaded in the production database (read 2026-11-18). It is not published: no download
-package is published, and the platform is a closed beta for approved accounts. Nothing in this repository promises a date or an access. The platform
-addresses that documents here point to are listed in [`data/site-links.json`](data/site-links.json), the one
-place to check when the state changes.
+Release 2.0.0 is loaded in the production database (read 2026-11-18). It is not published: the packages
+are built and staged in object storage, with a checksum for every file (manifest read 2026-11-20), and no
+anonymous download is open. The platform is a closed beta for approved accounts. Nothing in this repository
+promises a date or an access. The platform addresses that documents here point to are listed in
+[`data/site-links.json`](data/site-links.json), the one place to check when the state changes.
 
-[What it is](#what-it-is) · [The pipeline](#the-athanor-pipeline) · [At a glance](#at-a-glance) · [Collections](#the-five-top-level-collections) · [Sources](docs/SOURCES.md) · [Docs index](docs/README.md) · [Read the API](#read-aurora-through-the-api) · [Limits](#honest-limitations) · [Changelog](CHANGELOG.md) · [Cite](#citing) · [Contribute](#contributing)
+[What it is](#what-it-is) · [The pipeline](#the-athanor-pipeline) · [At a glance](#at-a-glance) · [Collections](#the-five-top-level-collections) · [Packages](#packages) · [Sources](#sources) · [Download and access](#download-and-access) · [Docs index](docs/README.md) · [Read the API](#read-aurora-through-the-api) · [Limits](#honest-limitations) · [Changelog](CHANGELOG.md) · [Cite](#citing) · [Contribute](#contributing)
 
 </div>
 
@@ -62,7 +63,7 @@ decided for public text (see [docs/SOURCES.md](docs/SOURCES.md)). AURORA does no
 
 - study natural-product chemical space with consistent descriptors
 - search by identifier, name or synonym through the API, with an account token, once the platform gives access
-- prepare ligands from complete compounds, once a package is released (docking-ready is not target-ready)
+- prepare ligands from complete compounds, once a package is released (a file prepared for docking is not target-ready)
 
 </td><td valign="top">
 
@@ -87,12 +88,12 @@ seven macro-stages, each with a quality gate rather than a bare count.
 | Stage | What it does |
 |---|---|
 | **G1** Collect sources | Each record is collected with its source and license |
-| **G2** Standardize and identify | Validates and standardizes each structure, merges duplicates and gives each unique compound an `ALC<n>` identifier |
-| **G3** Set protonation | Each molecule is prepared in the forms used for modeling, at physiological pH |
-| **G4** Build 3D conformers | A 3D geometry is generated and checked. It is approved, or marked as missing |
-| **G5** Compute properties | Each molecule is described by descriptors, fingerprints, structural alerts, ADMET predictions, scaffolds and a learned embedding |
-| **G6** Prepare for docking | Files are prepared for docking and checked |
-| **G7** Release and load | The release is assembled and loaded |
+| **G2** Standardize and identify | Validates and standardizes each structure, merges duplicates and gives each compound an ALC identifier |
+| **G3** Set protonation | Each molecule is protonated at physiological pH, under a stereochemistry policy |
+| **G4** Build 3D conformers | A 3D conformer is embedded, minimized and then validated by a validity gate. It is approved, or marked as missing |
+| **G5** Compute properties | Physicochemical descriptors, fingerprints, structural alerts and predicted ADMET are computed for each molecule, with scaffolds and a learned embedding |
+| **G6** Prepare for docking | A PDBQT file is prepared for docking and checked against readiness rules |
+| **G7** Release and load | The release is assembled, loaded and reconciled with the registry |
 
 More in [docs/PIPELINE.md](docs/PIPELINE.md). The pipeline exists because its predecessor reported
 near-total coverage while many of its files carried wrong stereochemistry. The lesson is the rule of the
@@ -127,43 +128,108 @@ subcollections of these, one level deep, and they roll up into their parent, so 
 summary lists more rows than five and the rows overlap. The list of collections can change before the
 release, and no count per collection is printed here. See [docs/COLLECTIONS.md](docs/COLLECTIONS.md).
 
-## Planned package layout
+## Packages
 
-No package is published and no date is promised. The planned contents are structure files (SDF, the
-canonical format, and PDBQT, derived from it), feature tables in Parquet, a manifest with a SHA-256 for every
-file, the SQL schema and the citation files. How these are grouped into archives is not settled. Detail in [docs/SCHEMA.md](docs/SCHEMA.md) and
-[docs/DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md). No release package is published (see
-[Availability](#availability)).
+The complete compounds of the release go out in two packages. Each compound belongs to exactly one, so the
+packages do not overlap, and the counts are in [At a glance](#at-a-glance).
+
+| Package | Licence | Who can fetch it, as the platform is built | Carries bioactivity rows |
+|---|---|---|---|
+| **AURORA** | CC BY-SA 4.0 | an approved account, scope `download` | yes, in the per-compound package |
+| **AURORA-NC** | CC BY-NC 4.0 | an approved account that accepted the NC terms, scope `download_nc` | no |
+
+Both come in two shapes.
+
+**Bundles by collection.** Each collection has a set of six bundles, one per type, each a `.tar.zst`:
+
+| Type | What is inside |
+|---|---|
+| `sdf`, `pdbqt` | one `ALC<n>.sdf` or `ALC<n>.pdbqt` per compound; SDF is the canonical format, PDBQT is derived from it |
+| `descriptors` | 2D physicochemical properties, one row per compound |
+| `descriptors3d` | 3D shape descriptors, one row per compound |
+| `admet` | ADMET-AI predictions, with the controls that say how many are missing. Predictions, not measurements |
+| `fingerprints` | Morgan (2048 and 1024 bits), MACCS, atom-pair, torsion and E3FP, in Parquet |
+
+Every bundle also carries `license_per_row.tsv` (the licence and the attribution of each compound), an
+`ATTRIBUTION.md` and a `SHA256SUMS`. The AURORA package has a set of bundles for each of the five
+collections (AURORA, Natural Space, Drug Space, Bioactivity Space and Diversity Space). The AURORA-NC package
+has them for four of those: the full catalog, Natural Space, Drug Space and Diversity Space. There is no NC
+bundle for Bioactivity Space, because AURORA-NC carries no bioactivity rows.
+
+**One package per compound.** Each compound has a `.zip` named `ALC<n>.zip`, for pulling one molecule. It holds:
+
+- `sdf/` and `pdbqt/` with the structure and the docking file;
+- `descriptors.tsv`, `descriptors3d.tsv`, `admet.tsv` and `fingerprints.tsv`;
+- `license.tsv`, `ATTRIBUTION.md`, `LICENSE` and a `README.md`;
+- `activities.tsv`, only in an AURORA package and only for a compound that has bioactivity rows the licence
+  lets us serve. A compound without such rows has no `activities.tsv`, and its README says so.
+
+**What the bundles do not carry.** No collection bundle has identity tables (canonical SMILES, InChIKey, names,
+cross-references), classification, scaffolds, protonation microstates, drug annotations, embeddings or the
+link of each compound to its sources beyond `license_per_row.tsv`. The structure files carry the structure,
+and the database holds the rest. Detail in [docs/SCHEMA.md](docs/SCHEMA.md) and
+[docs/DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md).
+
+A file prepared for docking is not target-ready: see [Honest limitations](#honest-limitations).
 
 ## Sources
 
-AURORA draws on public collections. The list, with references, is in [docs/SOURCES.md](docs/SOURCES.md);
-the public list of sources of release 2.0.0 is not decided. Attribution names Alchemia LTDA and the original
-sources: the curation does not replace them, and if you publish work built on a subset, cite the upstream
-projects too.
+AURORA draws on the public collections below. The raw dumps are not redistributed: for those, go to the
+original projects. Attribution names Alchemia LTDA for the curation and aggregation, and it does not replace
+the original sources: if you publish work built on a subset, cite the upstream projects too. The terms in the
+table are the sources' own words as recorded on the dates in [docs/SOURCES.md](docs/SOURCES.md), not a promise
+of ours. Read them at the source before you build on a subset.
+
+| Source | Package of the source | Terms as recorded | Reference |
+|---|---|---|---|
+| **COCONUT 2.0**, with its ZINC NP fraction | AURORA | Download page: CC0 | [10.1093/nar/gkae1063](https://doi.org/10.1093/nar/gkae1063) |
+| **NCI / DTP** Open Chemical Repository | AURORA | Structures in the public domain | RRID:SCR_003057 |
+| **ChEBI** | AURORA | CC BY 4.0, EMBL-EBI terms | [10.1093/nar/gkaf1271](https://doi.org/10.1093/nar/gkaf1271) |
+| **ChEMBL** 37 | AURORA | CC BY-SA 3.0, attribution by row | [10.1093/nar/gkad1004](https://doi.org/10.1093/nar/gkad1004) |
+| **BrNPDB** | AURORA | No data licence stated on the site | [10.1021/np3006875](https://doi.org/10.1021/np3006875) |
+| **BraCoLi** v1 | AURORA | No data licence stated on the site | [10.1007/s11030-022-10386-9](https://doi.org/10.1007/s11030-022-10386-9) |
+| **IRACEMA** | AURORA | No data licence stated on the site | [10.1021/acsomega.5c11939](https://doi.org/10.1021/acsomega.5c11939) |
+| **TCMBank** | AURORA-NC | No data licence stated; the site calls itself non-commercial | [10.1039/d3sc02139d](https://doi.org/10.1039/d3sc02139d) |
+| **Drug Repurposing Hub** | AURORA-NC | "Provided for non-commercial use only" | [10.1038/nm.4306](https://doi.org/10.1038/nm.4306) |
+| **AntibioticDB** (GARDP) | AURORA-NC | Terms for non-commercial use | [10.1021/acsinfecdis.5c00955](https://doi.org/10.1021/acsinfecdis.5c00955) |
+
+"Package of the source" is the set the source belongs to. A compound goes to AURORA when at least one of its
+sources is in the AURORA set, and to AURORA-NC otherwise, so an NC source can appear on a compound of the AURORA
+package. BindingDB is not a source of compounds: its measurements enter only as bioactivity rows about
+compounds AURORA already holds, each row with its own licence. The second paper of each source, where there
+is one, and the sentence each source asks for are in [docs/SOURCES.md](docs/SOURCES.md).
 
 ## Read AURORA through the API
 
 The platform is meant to expose a versioned REST API at `https://aurora.alchemia.solutions/v1/`.
 [docs/API.md](docs/API.md) lists the routes of the OpenAPI contract, the one that needs no token and the
 ones that need a Bearer token. Examples that only read are in [`examples/`](examples/) (Python and curl).
-Nobody gets direct database access, not even read-only: the planned surface is file packages plus the
-API. No package is published.
+Nobody gets direct database access, not even read-only: the surface is file packages plus the API. No
+package is published.
 
-## Availability
+## Download and access
 
-State on 2026-11-17, read from the contract of platform version 1.4.0 of the closed beta; the instance that
-answers may differ:
+Read from the contract of platform version 1.4.0 of the closed beta on 2026-11-17, and from the packages
+manifest on 2026-11-20. The instance that answers may differ, and no platform was read for this update.
 
-- **Release 2.0.0** is in preparation. Nothing of it is published: no tag, no release, no download package.
+- **Release 2.0.0** is loaded and not published: no tag, no release, no DOI, no anonymous download.
 - **The platform** is a closed beta for approved accounts. The Terms of Use, the Licence page and the Privacy
   Policy are final (version 1.0). Sign-up for the public is not open: it opens as its own step after the next
   platform release is cut, and no date is promised.
+- **How to download.** Sign in with an approved account. A collection page offers the bundles of that collection, and
+  the Explorer has a "Download Data" button for one compound. The one-compound package has its own API route,
+  `GET /v1/compounds/{alchemia_id}/package`, in the platform code of 2026-11-19. It is not in the 1.4.0
+  contract that [docs/API.md](docs/API.md) follows.
+  Files are handed over through a short-lived signed link, never as a public address.
+- **Scopes.** An account token carries the scope `download` for the AURORA package. The AURORA-NC package needs
+  the scope `download_nc`, which an approved account holds only after it accepts the NC terms. An account
+  without it is told that an NC compound does not exist: it is not shown the compound, the file or the count.
+- **Switches.** The one-compound download sits behind a switch that was off by default in the platform
+  configuration of 2026-11-19. Whether it is on in the instance that answers is not read here.
 - **The API** needs a Bearer token from an approved account, except the health probes, the sign-in doors and
   one route of aggregates ([docs/API.md](docs/API.md)).
-- **Download packages** are not published, and nothing here promises them.
-- **Bioactivity routes** are behind switches that are off in that contract. The substructure and similarity
-  search routes are off in the beta.
+- **Bioactivity routes** are behind switches that are off in the 1.4.0 contract. The substructure and
+  similarity search routes are off in the beta.
 - **This repository** describes the database. It is not the database.
 
 ## Honest limitations
@@ -180,7 +246,7 @@ answers may differ:
   some sources is under review (see docs/SOURCES.md). Read the terms at the source before you build on a
   subset.
 - No DOI is minted for the dataset.
-- "Docking-ready" means the files passed the checks of the pipeline. It does not mean that protonation and
+- A file prepared for docking means the file passed the checks of the pipeline. It does not mean that protonation and
   tautomer states are validated for every target.
 
 ## Licence
@@ -200,9 +266,21 @@ names, wordmarks and symbols inside the figures are not licensed under CC BY-SA.
 
 ## Citing
 
-Cite AURORA by name and publisher, the release you used and the date you accessed it. The release is shown
-on the platform. There is no DOI. Cite the upstream sources you used too, listed in
-[docs/SOURCES.md](docs/SOURCES.md). A machine-readable form is in [`CITATION.cff`](CITATION.cff).
+Cite AURORA by name and publisher, the release you used and the date you accessed it. The author is Alchemia
+LTDA and the publisher is Alchemia Solutions. The release is shown on the platform. There is no DOI. Cite the
+upstream sources you used too, listed in [Sources](#sources) and [docs/SOURCES.md](docs/SOURCES.md). A
+machine-readable form is in [`CITATION.cff`](CITATION.cff).
+
+```bibtex
+@misc{aurora,
+  title        = {AURORA},
+  author       = {{Alchemia LTDA}},
+  publisher    = {Alchemia Solutions},
+  howpublished = {Online platform. Access is by an approved account},
+  url          = {https://aurora.alchemia.solutions},
+  note         = {Add the release you used and the date you accessed it. No DOI has been issued.}
+}
+```
 
 ## Contributing
 

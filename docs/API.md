@@ -46,7 +46,7 @@ with `Retry-After`.
 | `GET /v1/catalog/stats` | Catalog statistics |
 | `GET /v1/dashboard/collections`, `licenses`, `sources`, `admet`, `clinical-phases` | Aggregates for the Dashboard |
 | `GET /v1/sources`, `GET /v1/sources/attribution`, `GET /v1/sources/{source_key}` | The sources shown, with attribution |
-| `GET /v1/compounds/{alchemia_id}/download/{kind}`, `GET /v1/compounds/{alchemia_id}/file/{file_format}` and the bundle routes under `/v1/collections/{slug}/bundles` | Files. No package is published, so these answer that the package is not ready |
+| `GET /v1/compounds/{alchemia_id}/download/{kind}`, `GET /v1/compounds/{alchemia_id}/file/{file_format}` and the bundle routes under `/v1/collections/{slug}/bundles` | Files. No package is published, so these answer that the package is not ready. The one-compound package route, `GET /v1/compounds/{alchemia_id}/package`, is in the platform code of 2026-11-19 and not in the 1.4.0 contract this page follows |
 | `/v1/account/*`, `GET /v1/auth/me` | Your own account |
 | `/v1/collaborate/*` | Register a study, request a database, send a published work |
 
