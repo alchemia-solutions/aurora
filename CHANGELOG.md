@@ -26,9 +26,11 @@ This entry changes presentation and documentation. It changes no figure, no data
 - `assets/step-collect.svg`, `step-curate.svg`, `step-release.svg`, `step-inspect.svg` and `platform.svg`: the four steps and the landing scene of the platform v1.5.1.
 - `README.md`: sections "How it works" and "The platform".
 
-### Not changed
+### Contract 1.5.1 merged (same day, second pass)
 
-- `docs/API.md`, `docs/FAQ.md` and `docs/COLLECTIONS.md` still follow the platform contract 1.4.0. The 1.5.1 contract has not been merged into them.
+- `docs/API.md` follows the platform contract 1.5.1 (read 2026-11-23, 116 operations on 106 paths): sign-up open by request, the two new open sign-in routes, bundles, capabilities, the one-compound package, the NC routes, API keys, the account and social routes, and the pipeline funnel. The substructure search is behind `SUBSTRUCTURE_SEARCH_ENABLED`; the similarity search no longer says it is off, because the contract names no switch for it.
+- `docs/FAQ.md`, `docs/COLLECTIONS.md` and `README.md` (Download and access) drop "sign-up is not open" and the 1.4.0 references.
+- Not read: the running instance. Which switches are on there is not known.
 
 ## [Unreleased] (2026-11-22): label of the one-compound download
 
@@ -72,8 +74,6 @@ published.
   BibTeX the platform shows. No DOI.
 - `docs/API.md`: the file row says the one-compound package route is in the platform code of 2026-11-19 and not
   in the 1.4.0 contract the page follows.
-
-### Not changed
 
 - The figures of the glance table, `LICENSE`, `CITATION.cff` and the sentence about the ShareAlike status of some
   sources. The count of bundles and the counts per collection are not printed here.

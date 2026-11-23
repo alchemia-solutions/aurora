@@ -270,9 +270,8 @@ package is published.
 ## Download and access
 
 Platform version 1.5.1 was deployed on 2026-11-23, and the deploy checks of that day found the sign-up open and the
-anonymous routes answering. The routes, scopes and switches below are read from the contract of version 1.4.0 of
-2026-11-17 and from the packages manifest of 2026-11-20, which [docs/API.md](docs/API.md) still follows. The
-contract of 1.5.1 is in the platform repository and has not been merged into these documents yet.
+anonymous routes answering. The routes, scopes and switches below are read from the contract of version 1.5.1 of
+2026-11-23, which [docs/API.md](docs/API.md) follows, and from the packages manifest of 2026-11-20.
 
 - **Release 2.0.0** is loaded and not published: no tag, no release, no DOI, no anonymous download.
 - **The platform** is a closed beta for approved accounts. The Terms of Use, the Licence page and the Privacy
@@ -281,18 +280,18 @@ contract of 1.5.1 is in the platform repository and has not been merged into the
   access without an account.
 - **How to download.** Sign in with an approved account. A collection page offers the bundles of that collection, and
   the Explorer has a "Download Data" button for one compound. The one-compound package has its own API route,
-  `GET /v1/compounds/{alchemia_id}/package`, in the platform code of 2026-11-19. It is not in the 1.4.0
-  contract that [docs/API.md](docs/API.md) follows.
+  `GET /v1/compounds/{alchemia_id}/package`, and the route `GET /v1/capabilities` says whether the instance
+  offers it to your session ([docs/API.md](docs/API.md)).
   Files are handed over through a short-lived signed link, never as a public address.
 - **Scopes.** An account token carries the scope `download` for the AURORA package. The AURORA-NC package needs
   the scope `download_nc`, which an approved account holds only after it accepts the NC terms. An account
   without it is told that an NC compound does not exist: it is not shown the compound, the file or the count.
-- **Switches.** The one-compound download sits behind a switch that was off by default in the platform
-  configuration of 2026-11-19. Whether it is on in the instance that answers is not read here.
+- **Switches.** The one-compound download sits behind the switch `INDIVIDUAL_PACKAGES_ENABLED`. Whether it is on
+  in the instance that answers is not read here.
 - **The API** needs a Bearer token from an approved account, except the health probes, the sign-in doors and
   one route of aggregates ([docs/API.md](docs/API.md)).
-- **Bioactivity routes** are behind switches that are off in the 1.4.0 contract. The substructure and
-  similarity search routes are off in the beta.
+- **Bioactivity routes** are behind the switch `BIOACTIVITY_ENABLED`, off unless the deployment turns it on. The
+  substructure search route is behind `SUBSTRUCTURE_SEARCH_ENABLED`, also off by default.
 - **This repository** describes the database. It is not the database.
 
 ## Honest limitations

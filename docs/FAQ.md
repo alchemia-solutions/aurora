@@ -13,8 +13,8 @@ date is promised. The platform is meant to hand the files to approved accounts: 
 
 **Can I use the API?**
 The API needs a Bearer token from an approved account, except for the health probes, the sign-in doors and
-one route of aggregates ([API.md](API.md)). The platform is a closed beta. The Terms of Use and the Privacy Policy are final (version 1.0), and sign-up for the
-public is not open: it opens as its own step after the next platform release is cut, with no date.
+one route of aggregates ([API.md](API.md)). The platform is a closed beta. The Terms of Use and the Privacy Policy are final (version 1.0). Sign-up is open by
+request: a new account is pending until an administrator approves it.
 
 **Which pages of the platform are open?**
 None is promised as open. The platform is a closed beta for approved accounts.

@@ -27,9 +27,9 @@ here.
 
 ## Where to open them
 
-The platform is a closed beta for approved accounts. In the contract of platform version 1.4.0 the
+The platform is a closed beta for approved accounts. In the contract of platform version 1.5.1 the
 [Collections](https://aurora.alchemia.solutions/collections) pages, the
 [Explorer](https://aurora.alchemia.solutions/explorer) and the download of a collection need one; the
 instance that answers may differ. Sign-up
-for the public is not open: it opens as its own step after the next platform release is cut, with no date. No download package is published, and nothing
+is open by request, and an administrator approves each account. No download package is published, and nothing
 here promises one.
