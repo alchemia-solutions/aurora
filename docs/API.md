@@ -3,7 +3,7 @@
 [Repository home](../README.md) · [Docs index](README.md)
 
 AURORA is meant to be served through a versioned REST API at `https://aurora.alchemia.solutions/v1/`. This
-page lists the routes of the OpenAPI contract of the platform, version 1.5.1 of the closed beta, read on
+page lists the routes of the OpenAPI contract of the platform, version 1.5.1 of the closed beta (version 1.5.2 has been in production since 2026-11-23, and its contract was not read again here; the changes it brought are in the README), read on
 2026-11-23 from the contract file of the platform repository (116 operations on 106 paths). The contract is what this page follows. The
 instance that answers in the beta may run another version, and a route listed here can answer 404, or answer
 without a token.
@@ -19,7 +19,7 @@ Dashboard aggregates and the pipeline funnel): a flag decides whether they answe
 not read here.
 
 Send the token as `Authorization: Bearer <token>`. A missing or invalid token answers 401. Sign In exists on
-the platform. The Terms of Use and the Privacy Policy are final (version 1.0). Sign-up is open by request:
+the platform. The Terms of Use and the Privacy Policy are in version 1.1 since platform 1.5.2 (2026-11-23); every account accepts them again at its next sign-in. Sign-up is open by request:
 `POST /v1/auth/register` creates a pending account and an administrator approves it. Sign-up was open when
 platform 1.5.1 was deployed on 2026-11-23. Nobody receives
 direct database access, not even read-only. A request can be rate limited, and a limit answers 429

@@ -144,7 +144,7 @@ stereochemistry. The lesson is the rule of the project: no coverage metric detec
 <img src="assets/platform.svg" alt="The AURORA platform: sources flow through the curation line to the released database" width="100%">
 </div>
 
-The **AURORA Platform** (version 1.5.1, deployed on 2026-11-23) is the way into the database: a REST API and a
+The **AURORA Platform** (contract read at version 1.5.1; version 1.5.2 has been in production since 2026-11-23 and the contract was not read again) is the way into the database: a REST API and a
 web app at [aurora.alchemia.solutions](https://aurora.alchemia.solutions).
 
 | Page | What you do there |
@@ -196,7 +196,7 @@ packages do not overlap, and the counts are in [At a glance](#at-a-glance).
 | Package | Licence | Who can fetch it, as the platform is built | Carries bioactivity rows |
 |---|---|---|---|
 | **AURORA** | CC BY-SA 4.0 | an approved account, scope `download` | yes, in the per-compound package |
-| **AURORA-NC** | CC BY-NC 4.0 | an approved account that accepted the NC terms, scope `download_nc` | no |
+| **AURORA-NC** | CC BY-NC 4.0 | an approved account that accepted the NC terms (see Scopes), scope `download_nc` | no |
 
 Both come in two shapes.
 
@@ -269,22 +269,21 @@ package is published.
 
 ## Download and access
 
-Platform version 1.5.1 was deployed on 2026-11-23, and the deploy checks of that day found the sign-up open and the
-anonymous routes answering. The routes, scopes and switches below are read from the contract of version 1.5.1 of
+Platform version 1.5.2 (commit `9363ed5`) has been in production since 2026-11-23, 22:18 UTC (read from the platform's deploy report). It replaced version 1.5.1 (commit `7030a42`). The deploy checks of 2026-11-23 found the anonymous pages answering and the old Terms and Download addresses redirecting. The full smoke test with a real account (sign-in, new acceptance of the Terms and the Policy 1.1, SA and NC download) is not done yet. The routes, scopes and switches below are read from the contract of version 1.5.1 of
 2026-11-23, which [docs/API.md](docs/API.md) follows, and from the packages manifest of 2026-11-20.
 
 - **Release 2.0.0** is loaded and not published: no tag, no release, no DOI, no anonymous download.
 - **The platform** is a closed beta for approved accounts. The Terms of Use, the Licence page and the Privacy
-  Policy are final (version 1.0). **Sign-up is open** at the platform, by request: a new account is created pending,
+  Policy are in version 1.0; versions 1.1 of the Terms and the Policy are prepared for version 1.5.2 and, by the
+  founder's declaration of 2026-11-23 (no document of counsel seen), approved by counsel, and every account accepts them again at its next sign-in once that version is deployed. **Sign-up is open** at the platform, by request: a new account is created pending,
   and an administrator approves it before it can use the Explorer and the downloads. No date is promised for
   access without an account.
-- **How to download.** Sign in with an approved account. A collection page offers the bundles of that collection, and
-  the Explorer has a "Download Data" button for one compound. The one-compound package has its own API route,
+- **How to download.** Sign in with an approved account. The bundles are offered in the `#downloads` section of each collection page; version 1.5.2 has no separate Download page, and the old addresses (`/downloads`, `/downloads/{slug}`, `/collections/{slug}/download`, `/terms`) answer 308. The Explorer has a "Download Data" button for one compound. The one-compound package has its own API route,
   `GET /v1/compounds/{alchemia_id}/package`, and the route `GET /v1/capabilities` says whether the instance
   offers it to your session ([docs/API.md](docs/API.md)).
   Files are handed over through a short-lived signed link, never as a public address.
 - **Scopes.** An account token carries the scope `download` for the AURORA package. The AURORA-NC package needs
-  the scope `download_nc`, which an approved account holds only after it accepts the NC terms. An account
+  the scope `download_nc`. In version 1.5.1 an approved account holds it only after a second acceptance of the NC terms; in version 1.5.2 (in production since 2026-11-23; the full smoke test is not done yet) an account that accepted the Terms and the Policy at sign-up holds it with no second acceptance, and withdrawing the acceptance closes the access. An account
   without it is told that an NC compound does not exist: it is not shown the compound, the file or the count.
 - **Switches.** The one-compound download sits behind the switch `INDIVIDUAL_PACKAGES_ENABLED`. Whether it is on
   in the instance that answers is not read here.

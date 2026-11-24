@@ -6,6 +6,26 @@ release history of the data: no release is published yet.
 
 Figures below are the ones in [`data/numbers.json`](data/numbers.json), with the date each was read.
 
+## [Unreleased] (2026-11-24): platform commit `4df61e1` in production, approval e-mail on
+
+Documentation only. Commit `4df61e1` of platform version 1.5.2 has been in production since 2026-11-24, about 14:53 UTC, with no database migration. Read on the platform's VM by the platform's node and in its deploy report (`docs/deploy/2026-11-24-relatorio-do-deploy-sessao-e-email.md` of the platform repository). What changed for a person: the e-mail that says an account is approved is now sent, from `contact@alchemia.solutions`, with a button to the login page; the sign-in page can keep a person signed in on a device (14 days idle, 30 days at most), and a signed-in person can change the e-mail address by a link sent to the new one; the sign-in page has larger tab names and a larger AURORA mark. Not proven in production: the stay-signed-in box and the e-mail change with an account, and the sign-in and download paths with an account. `docs/API.md`, `docs/FAQ.md` and `docs/COLLECTIONS.md` had their statements about the Terms and Policy 1.1 and the `#downloads` section brought up to date; their route tables still follow the 1.5.1 contract, which was not read again.
+
+## [Unreleased] (2026-11-23, evening): platform 1.5.2 in production
+
+Documentation only. Platform version 1.5.2 (commit `9363ed5`) has been in production since 2026-11-23, 22:18 UTC (19:18 Brasília), read from the platform's deploy report: deploy steps P0 to P6 done on the VM, API ready in 4.3 s, V5 and V6 ok, 0 responses 503, anonymous pages 200, `/terms` 308 to `/policy#terms-signup`, `/download` 308 to `#downloads`, the Policy shows version 1.1, logs without errors; rollback possible through the tags `rollback-v1.5.1-7030a42` (no database change, no migration). Not proven: the full smoke test with the founder's account (sign-in, new acceptance of Terms and Policy 1.1, SA and NC download), the render of the screens at 320, 375, 768 and 1440 px against the served build, `tests/integration`. Every account accepts the Terms and the Policy 1.1 again at its next sign-in. `README.md` now says version 1.5.2 is in production; `docs/API.md`, `docs/COLLECTIONS.md` and `docs/FAQ.md` still follow the contract 1.5.1 read earlier the same day and were not read again. The entries below are records of their dates.
+
+## [Unreleased] (2026-11-23, later): platform 1.5.1 confirmed in production
+
+Documentation only. Production runs platform version 1.5.1 (commit `7030a42`, "Hot fixes v1.5.1"), confirmed on 2026-11-23: founder, "Versao 1.5.1 rodando na VM"; read-only reading of the VM by the coordinator (`VERSION` 1.5.1, containers `aurora-web` and `aurora-api` `:prod` up and healthy for 15 hours). This supersedes "which version answers in production was not confirmed" in the two entries below, which stay as the record. Version 1.5.2 stays prepared and not deployed. There is still no deploy report for 1.5.1 on disk. The README "Download and access" line now says so.
+
+## [Unreleased] (2026-11-23): platform 1.5.2 prepared, not deployed
+
+Documentation only. Platform version 1.5.2 is prepared and not deployed, with no commit (platform deploy package of 2026-11-23); which version answers in production was not confirmed. `README.md`, `docs/API.md`, `docs/COLLECTIONS.md` and `docs/FAQ.md` now say: the downloads move to the `#downloads` section of each collection page, with no Download page and a 308 on the old addresses; the NC package opens to an account that accepted the Terms and the Policy at sign-up, with no second acceptance, and withdrawal closes it; the combined bundle list drops the v1 duplicates; Terms 1.1 and Policy 1.1 are prepared, approved by counsel by the founder's declaration of 2026-11-23 (no document of counsel seen), and take effect when 1.5.2 is deployed. The contract on `docs/API.md` stays the one of 1.5.1.
+
+## [Unreleased] (2026-11-23): platform version note
+
+Documentation note only; nothing in the README body was changed. The README says platform 1.5.1 was deployed on 2026-11-23 and the Terms and Privacy Policy are final at version 1.0. The platform repository records v1.5.2 as prepared in its working tree and not deployed, with Terms 1.1 and Policy 1.1, and has no deploy report for 1.5.1 on disk. The README lines are to be reconciled when the deploy report exists. Source: `alchemia-ai/softwares/aurora-platform/docs/deploy/2026-11-23-pacote-de-deploy-v1-5-2.md`.
+
 ## [Unreleased] (2026-11-23): AURORA banner and the seven gates described
 
 This entry changes presentation and documentation. It changes no figure, no data, no schema and no licence text. Nothing is published.

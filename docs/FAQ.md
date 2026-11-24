@@ -13,7 +13,7 @@ date is promised. The platform is meant to hand the files to approved accounts: 
 
 **Can I use the API?**
 The API needs a Bearer token from an approved account, except for the health probes, the sign-in doors and
-one route of aggregates ([API.md](API.md)). The platform is a closed beta. The Terms of Use and the Privacy Policy are final (version 1.0). Sign-up is open by
+one route of aggregates ([API.md](API.md)). The platform is a closed beta. The Terms of Use and the Privacy Policy are in version 1.1 since platform 1.5.2 (2026-11-23). Sign-up is open by
 request: a new account is pending until an administrator approves it.
 
 **Which pages of the platform are open?**

@@ -29,7 +29,7 @@ here.
 
 The platform is a closed beta for approved accounts. In the contract of platform version 1.5.1 the
 [Collections](https://aurora.alchemia.solutions/collections) pages, the
-[Explorer](https://aurora.alchemia.solutions/explorer) and the download of a collection need one; the
+[Explorer](https://aurora.alchemia.solutions/explorer) and the download of a collection need one (since version 1.5.2, in production on 2026-11-23, the downloads sit in the `#downloads` section of each collection page, with no Download page of their own); the
 instance that answers may differ. Sign-up
 is open by request, and an administrator approves each account. No download package is published, and nothing
 here promises one.
