@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Read-only calls to the AURORA API, following the OpenAPI contract of platform version 1.4.0 (closed beta).
+"""Read-only calls to the AURORA API, checked against platform version 1.5.2 in production on 2026-11-25 (closed beta).
 
     pip install requests
-    export AURORA_TOKEN=<a token from your approved account>   # for every route except the first
+    export AURORA_TOKEN=<an API key (aurk_...) created in Profile of your approved account>   # for every route except the first
     python examples/python/read_api.py
 
 Open route (no token): /v1/public/summary. Routes with a Bearer token: /v1/catalog/stats, /v1/collections,

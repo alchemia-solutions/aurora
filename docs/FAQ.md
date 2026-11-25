@@ -14,10 +14,12 @@ date is promised. The platform is meant to hand the files to approved accounts: 
 **Can I use the API?**
 The API needs a Bearer token from an approved account, except for the health probes, the sign-in doors and
 one route of aggregates ([API.md](API.md)). The platform is a closed beta. The Terms of Use and the Privacy Policy are in version 1.1 since platform 1.5.2 (2026-11-23). Sign-up is open by
-request: a new account is pending until an administrator approves it.
+request: a new account is pending until an administrator approves it. With an approved account you can create a
+read-only API key in Profile. Step by step: [QUICKSTART.md](QUICKSTART.md).
 
 **Which pages of the platform are open?**
-None is promised as open. The platform is a closed beta for approved accounts.
+Only the Home page and the sign-in page, checked on 2026-11-25. Every other page asks you to sign in with an
+approved account. No page is promised to stay open.
 
 **Which licence covers what?**
 The documentation is CC BY-SA 4.0, and so are the figures, except the names, wordmarks and symbols inside
@@ -45,7 +47,7 @@ dates, are in the [README](../README.md#at-a-glance). Release 2.0.0 is not publi
 
 **Does AURORA have bioactivity data?**
 The release database of 2.0.0 holds bioactivity measurements about the compounds AURORA holds, each row with its own
-licence, and not every row is redistributable. The platform does not serve them yet. AURORA does not replace
+licence, and not every row is redistributable. The platform serves them on the compound page to a signed-in approved account (2026-11-25), not to an API key. AURORA does not replace
 ChEMBL as a bioactivity reference.
 
 **Are the ADMET values measured?**

@@ -13,7 +13,7 @@ your own shell.
 Run the program of your choice. The platform is a closed beta. One route, the public summary, needs no token. For every other route set
 `AURORA_TOKEN` to the token of your approved account, or the API answers 401. What the calls do, and which
 routes need a token, is in [../docs/API.md](../docs/API.md). The calls follow the OpenAPI contract of platform
-version 1.4.0, read on 2026-11-17.
+version 1.5.2, checked in production on 2026-11-25.
 
 ## What is not here
 

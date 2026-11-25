@@ -262,7 +262,8 @@ is one, and the sentence each source asks for are in [docs/SOURCES.md](docs/SOUR
 ## Read AURORA through the API
 
 The platform is meant to expose a versioned REST API at `https://aurora.alchemia.solutions/v1/`.
-[docs/API.md](docs/API.md) lists the routes of the OpenAPI contract, the one that needs no token and the
+To start, read [docs/QUICKSTART.md](docs/QUICKSTART.md): from an account to an API key and your first call, checked in
+production on 2026-11-25. [docs/API.md](docs/API.md) lists the routes of the OpenAPI contract, the one that needs no token and the
 ones that need a Bearer token. Examples that only read are in [`examples/`](examples/) (Python and curl).
 Nobody gets direct database access, not even read-only: the surface is file packages plus the API. No
 package is published.
@@ -273,24 +274,24 @@ Platform version 1.5.2 (commit `9363ed5`) has been in production since 2026-11-2
 2026-11-23, which [docs/API.md](docs/API.md) follows, and from the packages manifest of 2026-11-20.
 
 - **Release 2.0.0** is loaded and not published: no tag, no release, no DOI, no anonymous download.
-- **The platform** is a closed beta for approved accounts. The Terms of Use, the Licence page and the Privacy
-  Policy are in version 1.0; versions 1.1 of the Terms and the Policy are prepared for version 1.5.2 and, by the
-  founder's declaration of 2026-11-23 (no document of counsel seen), approved by counsel, and every account accepts them again at its next sign-in once that version is deployed. **Sign-up is open** at the platform, by request: a new account is created pending,
-  and an administrator approves it before it can use the Explorer and the downloads. No date is promised for
+- **The platform** is a closed beta for approved accounts. The Terms of Use and the Privacy Policy are in
+  version 1.1 since version 1.5.2, and every account accepts them again at its next sign-in. **Sign-up is open** at the platform, by request: a new account is created pending,
+  an administrator approves it, and the approval is announced by an e-mail from `contact@alchemia.solutions`
+  with a button to log in. Without an approved account only the Home page and the sign-in page open (checked on 2026-11-25). No date is promised for
   access without an account.
 - **How to download.** Sign in with an approved account. The bundles are offered in the `#downloads` section of each collection page; version 1.5.2 has no separate Download page, and the old addresses (`/downloads`, `/downloads/{slug}`, `/collections/{slug}/download`, `/terms`) answer 308. The Explorer has a "Download Data" button for one compound. The one-compound package has its own API route,
   `GET /v1/compounds/{alchemia_id}/package`, and the route `GET /v1/capabilities` says whether the instance
   offers it to your session ([docs/API.md](docs/API.md)).
   Files are handed over through a short-lived signed link, never as a public address.
 - **Scopes.** An account token carries the scope `download` for the AURORA package. The AURORA-NC package needs
-  the scope `download_nc`. In version 1.5.1 an approved account holds it only after a second acceptance of the NC terms; in version 1.5.2 (in production since 2026-11-23; the full smoke test is not done yet) an account that accepted the Terms and the Policy at sign-up holds it with no second acceptance, and withdrawing the acceptance closes the access. An account
+  the scope `download_nc`. In version 1.5.2 an account that accepted the Terms and the Policy at sign-up holds it with no second acceptance, and withdrawing the acceptance closes the access. An account
   without it is told that an NC compound does not exist: it is not shown the compound, the file or the count.
-- **Switches.** The one-compound download sits behind the switch `INDIVIDUAL_PACKAGES_ENABLED`. Whether it is on
-  in the instance that answers is not read here.
+- **Switches** (read in production on 2026-11-25): the one-compound package is on; API keys are on and only read;
+  similarity and substructure search are off and answer 503. The full table is in [docs/QUICKSTART.md](docs/QUICKSTART.md#what-this-deployment-offers-today).
 - **The API** needs a Bearer token from an approved account, except the health probes, the sign-in doors and
   one route of aggregates ([docs/API.md](docs/API.md)).
-- **Bioactivity routes** are behind the switch `BIOACTIVITY_ENABLED`, off unless the deployment turns it on. The
-  substructure search route is behind `SUBSTRUCTURE_SEARCH_ENABLED`, also off by default.
+- **Bioactivity routes** are on in production (2026-11-25) for the signed-in session; an API key is refused on
+  them (`403 api_key_not_allowed`).
 - **This repository** describes the database. It is not the database.
 
 ## Honest limitations

@@ -7,6 +7,7 @@
 | [SCHEMA.md](SCHEMA.md) | The public data model: areas, tables, views, identifiers |
 | [DATA_DICTIONARY.md](DATA_DICTIONARY.md) | The columns a consumer is most likely to meet, including bioactivity, assays and targets |
 | [COLLECTIONS.md](COLLECTIONS.md) | The five top-level collections of the platform |
+| [QUICKSTART.md](QUICKSTART.md) | From an account to an API key and the first call, with limits, errors and what production offers today |
 | [API.md](API.md) | The routes of the OpenAPI contract, which need no token and which need a Bearer token, and how access works in the closed beta |
 | [FAQ.md](FAQ.md) | Short answers on licence, access and limits |
 

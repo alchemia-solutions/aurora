@@ -7,8 +7,8 @@ page lists the routes of the OpenAPI contract of the platform, version 1.5.1 of 
 2026-11-23 from the contract file of the platform repository (116 operations on 106 paths). The contract is what this page follows. The
 instance that answers in the beta may run another version, and a route listed here can answer 404, or answer
 without a token.
-This page does not repeat the parameters or the answers: read them in the interactive reference, under
-Documents on the platform, which needs an approved account during the beta.
+This page does not repeat the parameters or the answers. The interactive reference and the OpenAPI file are not published
+in the beta (checked on 2026-11-25). To start, read [QUICKSTART.md](QUICKSTART.md).
 
 ## Access
 
@@ -18,19 +18,21 @@ Bearer token and answers 401 without it. Some of them say "anonymous, behind a f
 Dashboard aggregates and the pipeline funnel): a flag decides whether they answer without a token, and it is
 not read here.
 
-Send the token as `Authorization: Bearer <token>`. A missing or invalid token answers 401. Sign In exists on
+Send the token as `Authorization: Bearer <token>`. A missing or invalid token answers 401. The token is either the
+signed-in session of the platform or an API key (`aurk_...`) created in Profile. An API key only reads: on downloads,
+bioactivity, forms and the account it answers `403 api_key_not_allowed` ([QUICKSTART.md](QUICKSTART.md#2-create-an-api-key)). Sign In exists on
 the platform. The Terms of Use and the Privacy Policy are in version 1.1 since platform 1.5.2 (2026-11-23); every account accepts them again at its next sign-in. Sign-up is open by request:
 `POST /v1/auth/register` creates a pending account and an administrator approves it. Sign-up was open when
 platform 1.5.1 was deployed on 2026-11-23. Nobody receives
 direct database access, not even read-only. A request can be rate limited, and a limit answers 429
-with `Retry-After`.
+with `Retry-After`: in production on 2026-11-25 the limit is 60 requests per 60 seconds per address.
 
 ## Routes that need no token
 
 | Route | What it returns |
 |---|---|
 | `GET /v1/public/summary` | Aggregates behind the public Home. It holds no compound |
-| `GET /health/live`, `GET /health/ready` | The health probes |
+| `GET /health/live`, `GET /health/ready` | The health probes. Not exposed on the public address (404 there, 2026-11-25) |
 | `POST /v1/auth/login`, `POST /v1/auth/register`, `POST /v1/auth/forgot-password`, `POST /v1/auth/reset-password`, `POST /v1/auth/reset-password/check`, `POST /v1/auth/confirm-email`, `POST /v1/auth/email-change/confirm`, `POST /v1/auth/resend-confirmation`, `POST /v1/auth/session/refresh`, `POST /v1/auth/session/logout` | The sign-in doors of an account, with a few more of the same kind in the contract |
 | `GET /v1/auth/providers`, `GET /v1/auth/password-policy`, `GET /v1/auth/oauth/{provider}/authorize` and `/callback` | Which sign-in methods work, the password rules, and the OAuth steps |
 
@@ -40,11 +42,11 @@ with `Retry-After`.
 |---|---|
 | `GET /v1/search/text?q=...` | Search by identifier, name or synonym. Optional: `limit`, `availability`, `sources`, `space`, `fields` |
 | `POST /v1/search/substructure` | Behind the switch `SUBSTRUCTURE_SEARCH_ENABLED`, off unless the deployment turns it on: expect 503 `substructure_search_unavailable`, not results. SMARTS substructure search. Body: `smarts` (required, at most 500 characters), `limit`, `availability`, `use_chirality`, `sources`, `space` |
-| `POST /v1/search/similarity` | The 1.5.1 contract names no switch for it, and whether the instance answers is not read here. Tanimoto similarity, Morgan radius 2, 2048 bits. Body: `smiles` (required), `min_similarity` (0.1 to 1, default 0.7), `limit`, `availability`, `sources`, `space` |
+| `POST /v1/search/similarity` | Off in production on 2026-11-25: answers 503 `similarity_search_unavailable`. Tanimoto similarity, Morgan radius 2, 2048 bits. Body: `smiles` (required), `min_similarity` (0.1 to 1, default 0.7), `limit`, `availability`, `sources`, `space` |
 | `GET /v1/compounds`, `GET /v1/compounds/batch?ids=...` | Listing with keyset cursors, and a batch summary |
 | `GET /v1/compounds/{alchemia_id}` | The record of one compound |
 | `GET /v1/compounds/{alchemia_id}/features`, `.../fingerprints`, `.../protonation-variants`, `.../provenance`, `.../external-ids`, `.../structures`, `.../structure.sdf`, `.../structure.svg`, `.../structure2d.json` | Sub-resources of one compound |
-| `GET /v1/compounds/{alchemia_id}/activities`, `GET /v1/compounds/{alchemia_id}/bioactivity` | Bioactivity rows of a compound. Behind a feature flag that is off in the beta: expect 404 or 503 |
+| `GET /v1/compounds/{alchemia_id}/activities`, `GET /v1/compounds/{alchemia_id}/bioactivity` | Bioactivity rows of a compound. On in production (2026-11-25) for the signed-in session; an API key gets 403 |
 | `GET /v1/id-history/{alchemia_id}` | The old-to-new map of the renumbering of release 2.0.0 |
 | `GET /v1/collections`, `GET /v1/collections/{slug}`, `.../compounds`, `.../sources` | The collections, one collection, its compounds and its sources |
 | `GET /v1/catalog/stats` | Catalog statistics |
