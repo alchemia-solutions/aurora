@@ -23,8 +23,9 @@ Sign in, open **Profile** and create a key. A key:
 
 - starts with `aurk_`, and the whole key is shown **once**, when it is created. Store it like a password;
 - lasts 7, 30, 90 or 365 days (30 by default), and an account holds at most 5 active keys;
-- **only reads**: it can search and read compounds, collections and sources. It cannot download files, send
-  forms, read bioactivity or change the account. Those need the signed-in session of the platform;
+- **only reads**: it can search and read compounds (record, features, fingerprints, provenance, structures and
+  activity rows), collections and sources. It cannot download files, read the `/bioactivity` view, send forms or
+  change the account. Those need the signed-in session of the platform;
 - can be revoked at any time from the same page. A revoked or expired key is refused.
 
 Send it in the `Authorization` header, never in a URL:
@@ -87,7 +88,7 @@ while True:
 | Status | Usual `code` | Meaning |
 |---|---|---|
 | 401 | | No token, or a token that is invalid or expired |
-| 403 | `api_key_not_allowed` | The route needs the signed-in session, not an API key (downloads, bioactivity, account) |
+| 403 | `api_key_not_allowed` | The route needs the signed-in session, not an API key (downloads, the `/bioactivity` view, account) |
 | 404 | `not_found` | No such compound for your account. An NC compound is answered this way to an account without NC access |
 | 429 | | Rate limited. Read `Retry-After` |
 | 503 | `similarity_search_unavailable`, `substructure_search_unavailable` | The search is not turned on in this deployment |
@@ -98,7 +99,7 @@ Files are not handed to API keys. Sign in on the platform and open a collection:
 (`#downloads`) lists the bundles of the AURORA package (CC BY-SA 4.0) and of the AURORA-NC package
 (CC BY-NC 4.0). Each download is a short-lived signed link. The Explorer also has a **Download Data** button for
 one compound. What a bundle holds and how to cite it: [Packages](../README.md#packages) and
-[Licence](../README.md#licence).
+[Licence](../README.md#licence). How to check and open a bundle: [USING_THE_DATA.md](USING_THE_DATA.md).
 
 ## What this deployment offers today
 
@@ -108,7 +109,7 @@ Read on 2026-11-25 from production:
 |---|---|
 | Text search, compound record, structures, collections, sources | On |
 | API keys (read only) | On |
-| Bioactivity of a compound | On, with the signed-in session only |
+| Bioactivity of a compound | On: `/activities` with a session or a key, `/bioactivity` with the session only |
 | One-compound package (`/v1/compounds/{alchemia_id}/package`) | On, with the signed-in session only |
 | Similarity search | Off: answers 503 |
 | Substructure search | Off: answers 503 |

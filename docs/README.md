@@ -8,7 +8,8 @@
 | [DATA_DICTIONARY.md](DATA_DICTIONARY.md) | The columns a consumer is most likely to meet, including bioactivity, assays and targets |
 | [COLLECTIONS.md](COLLECTIONS.md) | The five top-level collections of the platform |
 | [QUICKSTART.md](QUICKSTART.md) | From an account to an API key and the first call, with limits, errors and what production offers today |
-| [API.md](API.md) | The routes of the OpenAPI contract, which need no token and which need a Bearer token, and how access works in the closed beta |
+| [USING_THE_DATA.md](USING_THE_DATA.md) | For people who use the data: API or files, the licence of each compound, the bundles and how to check them, recipes |
+| [API.md](API.md) | A guide to the API: one example call and answer per group of routes, errors and rate limit, and the table of every route with what an API key may call |
 | [FAQ.md](FAQ.md) | Short answers on licence, access and limits |
 
 ## How to use
